@@ -1,21 +1,22 @@
 .back-top {
-    position: fixed;
-    bottom: 4vw;
-    right: 4vw;
-    width: 3vw;
-    height: 3vw;
-    box-sizing: border-box;
-    border: 0.15vw solid var(--color_11);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    &:hover {
-        cursor: pointer;
-        background: rgba(0, 0, 0, 0.85);
-    }
-    .icon {
-        font-size: 2.8rem;
-    }
+	position: fixed;
+	bottom: 4vw;
+	right: 4vw;
+	width: 3vw;
+	height: 3vw;
+	box-sizing: border-box;
+	border: 0.15vw solid var(--backTop_color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	background: var(--backTop_bg_color);
+	&:hover {
+		cursor: pointer;
+		background: var(--backTop_bg_hover_color);
+	}
+	.icon {
+		font-size: 2.8rem;
+		color: var(--backTop_color);
+	}
 }
