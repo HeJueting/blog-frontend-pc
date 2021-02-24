@@ -2,7 +2,6 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import Home from "../src/pages/home";
 import articleAxios from "../src/api/article";
-import userAxios from "../src/api/user";
 
 function App({ hotArticles }) {
     return (
@@ -22,7 +21,6 @@ export const getStaticProps: GetStaticProps = async () => {
         pageSize: 6,
         sort: "look",
     });
-
     return {
         props: {
             hotArticles: hotArticlesRes.data,
