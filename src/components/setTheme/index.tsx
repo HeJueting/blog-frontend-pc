@@ -1,26 +1,13 @@
 import { useEffect, useContext } from "react";
 import lodash from "../../utils/lodash";
 import context from "../../store/context";
+import theme from "./theme";
 
 const SetTheme: () => null = () => {
-	// 获取主题配色
-	const theme = {
-		color_0: "#000",
-		color_1: "#2a1215",
-		color_2: "#431418",
-		color_3: "#58181c",
-		color_4: "#791a1f",
-		color_5: "#a61d24",
-		color_6: "#d32029",
-		color_7: "#e84749",
-		color_8: "#f37370",
-		color_9: "#f89f9a",
-		color_10: "#fac8c3",
-		color_11: "#fff",
-	};
 	const { dispatch } = useContext(context);
 
 	const setTheme: () => void = () => {
+		// 初始化主题色
 		dispatch({
 			type: "SET_THEME",
 			params: { theme },
