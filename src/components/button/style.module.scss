@@ -5,13 +5,13 @@
 	padding: 0.3vw 2vw;
 	font-size: 1.6rem;
 	border-radius: 0.25vw;
-	color: var(--button_font_color);
+	color: var(--font_blue_color);
 	border: 0.05vw solid var(--border_color);
-	background: var(--button_bg_color);
+	background: var(--bg_color);
 	cursor: pointer;
 	transition: all 0.2s linear 0s;
 	&:hover {
-		background: var(--button_bg_hover_color);
+		background: var(--bg_hover_color);
 		transition: all 0.2s linear 0s;
 	}
 }
