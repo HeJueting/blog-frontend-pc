@@ -1,0 +1,20 @@
+.wrap {
+    position: relative;
+    overflow-x: hidden;
+    .wrap-main {
+        height: 100vh;
+    }
+    .wrap-main-in {
+        transform: perspective(0) translate3d(0, 0, 0);
+        transform-style: preserve-3d;
+        transition: all 0.5s ease 0s;
+        overflow: auto;
+    }
+    .wrap-main-out {
+        transform: perspective(62.5vw) translate3d(5.2vw, 0, -31.25vw)
+            rotateY(-20deg);
+        transform-style: preserve-3d;
+        transition: all 0.5s ease 0s;
+        overflow: hidden;
+    }
+}

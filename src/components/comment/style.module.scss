@@ -1,0 +1,129 @@
+.comment-box {
+	// 标题
+	.comment-title {
+		span {
+			&:first-child {
+				font-size: 2.8rem;
+				font-weight: bold;
+				margin-right: 1.2vw;
+			}
+		}
+	}
+	// 评论列表
+	.comment-content {
+		.item-wrap {
+			margin-top: 3vw;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding-bottom: 1.6vw;
+			border-bottom: 0.05vw dashed #d9d9d9;
+			.img-wrap {
+				width: 5vw;
+				height: 5vw;
+				border-radius: 100%;
+				border: 0.05vw solid #d9d9d9;
+				background: #f5f5f5;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.icon {
+					font-size: 5rem;
+					color: #d9d9d9;
+				}
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.item-info {
+				width: calc(100% - 6.8vw);
+				// 评论头部信息
+				.info-header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 1vw;
+					.name {
+						font-size: 1.8rem;
+					}
+					p {
+						color: #666;
+						font-size: 1.4rem;
+						.time {
+							margin-right: 2vw;
+						}
+						.reply {
+							&:hover {
+								cursor: pointer;
+								color: var(--color_0);
+							}
+						}
+					}
+				}
+				// 评论回复
+				.reply-content {
+					margin: 1vw 1vw 1.6vw 1vw;
+					padding: 1vw;
+					background: #e5e0e0;
+					border-radius: 0.5vw;
+					color: #565454;
+					.header {
+						margin-bottom: 1vw;
+						span {
+							color: var(--color_0);
+							font-weight: bold;
+							margin: 0 0.4vw;
+						}
+					}
+				}
+			}
+		}
+	}
+	// 空内容
+	.empty-box {
+		color: #666;
+		text-align: center;
+		margin-top: 3vw;
+		.icon {
+			font-size: 2rem;
+			margin-right: 0.6vw;
+		}
+	}
+	// 编辑器
+	.editor-box {
+		position: relative;
+		margin-top: 3vw;
+		border: 0.05vw solid #d9d9d9;
+		.reply-box {
+			position: absolute;
+			right: 1vw;
+			top: 0.6vw;
+			display: flex;
+			align-items: center;
+			font-weight: bold;
+			z-index: 9;
+			.icon {
+				position: relative;
+				top: 0.1vw;
+				font-size: 1.6rem;
+				margin-left: 1vw;
+				&:hover {
+					cursor: pointer;
+					color: var(--color_6);
+				}
+			}
+		}
+	}
+	// 操作
+	.comment-operate {
+		margin-top: 1vw;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.input {
+			width: calc(50% - 6vw);
+		}
+	}
+}

@@ -1,0 +1,84 @@
+.article-details {
+    background: var(--color_11);
+    .article-box {
+        position: relative;
+        z-index: 9;
+        margin: 0 auto;
+        margin-top: -16vw;
+        width: 70vw;
+        padding: 3vw;
+        border: var(--color_11) solid 0.2vw;
+        box-sizing: border-box;
+        .article-wrap {
+            box-sizing: border-box;
+            width: 64vw;
+            padding: 2vw;
+            background: var(--color_11);
+            min-height: 60vh;
+            box-shadow: 0 0 0.2vw 0.2vw rgb(0 0 0 / 20%);
+            color: var(--color_0);
+            // 文章标题
+            .article-title {
+                margin-bottom: 2vw;
+                text-align: center;
+                font-size: 4.2rem;
+            }
+            // 文章基本信息
+            .article-info {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .info-wrap {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #666;
+                    &:nth-child(2) {
+                        margin: 0 3vw;
+                        .icon {
+                            font-size: 1.8rem;
+                        }
+                    }
+                    .icon {
+                        font-size: 1.6rem;
+                        margin-right: 0.8vw;
+                    }
+                    .label {
+                        padding: 0.15vw 0.3vw;
+                        margin-right: 0.6vw;
+                        border: 0.05vw solid #d9d9d9;
+                        border-radius: 0.2vw;
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            // 文章正文
+            .article-content {
+                margin-top: 3vw;
+            }
+            // 文章操作：分享、点赞
+            .article-operate {
+                margin-top: 3vw;
+                margin-bottom: 3vw;
+                display: flex;
+                justify-content: flex-end;
+                .icon {
+                    color: #666;
+                    font-size: 4.8rem;
+                    cursor: pointer;
+                    transition: color 0.2s linear 0s;
+                    &:first-child {
+                        margin-right: 4vw;
+                    }
+                    &:hover {
+                        color: var(--color_6);
+                        transition: color 0.2s linear 0s;
+                    }
+                }
+                .icon-active {
+                    color: var(--color_6);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,417 @@
+.home-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgScroll {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+// 第一屏
+.section-one {
+    .section-one-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .section-one-headImg {
+            display: block;
+            width: 9vw;
+            height: 9vw;
+            border-radius: 100%;
+            padding: 1px;
+            margin-bottom: 1.6vw;
+            box-shadow: 0 0 0.5vw var(--color_11);
+            font-size: 4vw;
+            color: var(--color_11);
+            text-align: center;
+            line-height: 9vw;
+            background: var(--color_11);
+            img {
+                display: block;
+                width: 9vw;
+                height: 9vw;
+                border-radius: 100%;
+            }
+        }
+        .section-one-name {
+            font-size: 2vw;
+            color: white;
+            letter-spacing: 2px;
+            font-family: "Consolas";
+            span {
+                margin-right: 1.2vw;
+            }
+        }
+        .section-one-job {
+            font-size: 0.8vw;
+            color: #d3d1d1;
+            margin-top: 0.5vw;
+        }
+        .section-one-motto {
+            margin-top: 4vw;
+            color: #d3d1d1;
+            font-size: 1.8rem;
+            max-width: 35vw;
+            text-indent: 2vw;
+            font-family: Courier;
+        }
+    }
+}
+// 第二屏
+.section-two {
+    background: var(--color_11);
+    .section-two-left {
+        position: relative;
+        width: 38vw;
+        height: 22vw;
+        margin-right: 3.6vw;
+        img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 2;
+            width: 35vw;
+            height: 22vw;
+            background: var(--color_11);
+            padding: 2vw;
+            box-sizing: border-box;
+        }
+        &::before {
+            position: absolute;
+            left: 0;
+            top: -3vw;
+            content: "";
+            width: 22vw;
+            height: 28vw;
+            background: var(--color_0);
+            z-index: 1;
+        }
+    }
+    .section-two-right {
+        position: relative;
+        width: 30vw;
+        height: 22vw;
+        background: var(--color_0);
+        .section-two-right-title {
+            position: absolute;
+            top: -4.2vw;
+            right: 0;
+            display: flex;
+            h2 {
+                font-size: 3.8rem;
+                font-family: sans-serif;
+                &:nth-child(1),
+                &:nth-child(2) {
+                    color: var(--color_0);
+                    margin-right: 0.6vw;
+                }
+                &:nth-child(3),
+                &:nth-child(4) {
+                    position: relative;
+                    color: var(--color_7);
+                    &::before {
+                        position: absolute;
+                        font-size: 1.2rem;
+                        color: var(--color_0);
+                        font-weight: normal;
+                    }
+                }
+                &:nth-child(3) {
+                    margin-right: 0.6vw;
+                    &::before {
+                        top: -1vw;
+                        left: 0.1vw;
+                        content: "About";
+                    }
+                }
+                &:nth-child(4) {
+                    &::before {
+                        top: -1vw;
+                        left: 0.6vw;
+                        content: "Me";
+                    }
+                }
+            }
+        }
+        .section-two-right-context {
+            width: 100%;
+            height: 100%;
+            padding: 1.6vw;
+            box-sizing: border-box;
+            .context-introduction {
+                margin-bottom: 4vw;
+                text-indent: 2vw;
+                line-height: 2;
+            }
+            .context-info {
+                margin-top: 1.6vw;
+                display: flex;
+                align-items: center;
+                vertical-align: middle;
+                span {
+                    font-size: 1.6rem;
+                }
+                .context-info-icon {
+                    padding-top: 0.2vw;
+                    font-size: 1.6rem;
+                    margin-right: 0.8vw;
+                }
+            }
+        }
+    }
+}
+// 第三屏
+.section-three {
+    .section-three-content {
+        display: flex;
+        justify-content: center;
+        .three-wrap {
+            position: relative;
+            padding: 1vw 0.5vw;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 0.3vw;
+            margin: 0 2vw;
+            .three-wrap-mask {
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 0;
+                width: 100%;
+                height: 0;
+                border-radius: 0.3vw;
+                background: var(--color_11);
+                transition: all 0.3s linear 0s;
+            }
+            .three-icon-wrap {
+                position: relative;
+                z-index: 1;
+                padding: 2vw;
+                border-radius: 100%;
+                border: 0.3vw solid var(--color_11);
+                .three-iconfont {
+                    font-size: 5rem;
+                    transition: color 0.3s linear 0s;
+                }
+            }
+            .three-title {
+                z-index: 1;
+                position: relative;
+                text-align: center;
+                bottom: -4vw;
+                transition: bottom 0.3s linear 0s;
+                color: var(--color_11);
+            }
+            // 悬浮动画效果
+            &:hover {
+                .three-wrap-mask {
+                    height: 100%;
+                    transition: height 0.3s linear 0s;
+                }
+                .three-title {
+                    bottom: 1vw;
+                    color: var(--color_7);
+                    transition: all 0.3s linear 0s;
+                }
+                .three-icon-wrap {
+                    .three-iconfont {
+                        color: var(--color_7);
+                        transition: color 0.3s linear 0s;
+                    }
+                }
+            }
+        }
+    }
+}
+// 第四屏
+.section-four {
+    background: var(--color_11);
+    .section-four-content {
+        position: relative;
+
+        .four-article-wrap {
+            width: 67vw;
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            .four-article-item {
+                position: relative;
+                width: 17vw;
+                height: 10vw;
+                margin: 4vw 2vw 0 2vw;
+                cursor: pointer;
+                overflow: hidden;
+                .four-icon-wrap {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 0.2vw solid var(--color_0);
+                    box-sizing: border-box;
+                    .four-iconbook {
+                        font-size: 6rem;
+                        color: var(--color_0);
+                        transition: all 0.3s linear 0s;
+                    }
+                }
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                    transition: all 0.3s linear 0s;
+                }
+                .four-mask-wrap {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                    background: rgba(0, 0, 0, 0.7);
+                    opacity: 0;
+                    transition: all 0.3s linear 0s;
+                    p {
+                        font-family: Limelight, cursive, Consolas;
+                        padding: 0 1vw;
+                        width: 100%;
+                        box-sizing: border-box;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        span {
+                            margin-right: 0.5vw;
+                        }
+                    }
+                    .four-mask-wrap-title {
+                        text-align: center;
+                        margin-top: 4vw;
+                        font-size: 2.4rem;
+                    }
+                }
+                // 悬浮效果
+                &:hover {
+                    img {
+                        transform: scale(1.2);
+                        transition: all 0.3s linear 0s;
+                    }
+                    .four-mask-wrap {
+                        opacity: 1;
+                        transition: all 0.3s linear 0s;
+                    }
+                    .four-iconbook {
+                        transform: scale(1.2);
+                        transition: all 0.3s linear 0s;
+                    }
+                }
+            }
+        }
+
+        .section-four-title {
+            position: absolute;
+            top: -2vw;
+            left: 2vw;
+            display: flex;
+            h2 {
+                font-size: 3.8rem;
+                font-family: sans-serif;
+                &:nth-child(1),
+                &:nth-child(2) {
+                    color: var(--color_0);
+                    margin-right: 0.6vw;
+                }
+                &:nth-child(3),
+                &:nth-child(4) {
+                    position: relative;
+                    color: var(--color_7);
+                    &::before {
+                        position: absolute;
+                        font-size: 1.2rem;
+                        color: var(--color_0);
+                        font-weight: normal;
+                    }
+                }
+                &:nth-child(3) {
+                    margin-right: 0.6vw;
+                    &::before {
+                        top: -1vw;
+                        left: 0.4vw;
+                        content: "Hot";
+                    }
+                }
+                &:nth-child(4) {
+                    &::before {
+                        top: -1vw;
+                        left: 0.1vw;
+                        content: "Article";
+                    }
+                }
+            }
+        }
+    }
+}
+// 第五屏
+.section-five {
+    position: relative;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6);
+    .section-five-content {
+        width: 100%;
+        height: calc(100vh - 14vw);
+        display: flex;
+        justify-content: center;
+        // 标题
+        .five-context-title {
+            font-size: 5rem;
+            margin-top: 8vw;
+            margin-bottom: 3vw;
+        }
+        // 提交意见
+        .suggestion-wrap {
+            width: 30vw;
+            margin-right: 15vw;
+            .suggestion-textarea-wrap {
+                display: block;
+                margin-bottom: 1vw;
+                width: 30vw;
+                height: 8vw;
+            }
+            .suggestion-input-wrap {
+                width: 30vw;
+                display: flex;
+                justify-content: space-between;
+                .suggestion-input {
+                    width: 10vw;
+                }
+            }
+        }
+        // 联系我
+        .contact-wrap {
+            .contact-item-wrap {
+                margin-bottom: 1.5vw;
+                .contact-iconfont {
+                    margin-right: 1.6vw;
+                    font-size: 3.2rem;
+                    color: var(--color_11);
+                    vertical-align: middle;
+                }
+                .icon-github {
+                    font-size: 2.4;
+                }
+                span {
+                    font-size: 1.8rem;
+                    color: var(--color_11);
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}

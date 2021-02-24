@@ -1,0 +1,49 @@
+.message {
+    padding: 0.5vw 1vw;
+    background: var(--color_11);
+    border-radius: 0.3vw;
+    box-shadow: 0 0.4vw 1.2vw rgba(0, 0, 0, 0.25);
+    margin-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: moveIn 0.3s linear;
+    .iconfont {
+        margin-right: 0.6vw;
+        font-size: 1.8rem;
+        vertical-align: middle;
+    }
+    span {
+        font-size: 1.6rem;
+        color: var(--color_0);
+        vertical-align: middle;
+    }
+    .iconsuccess {
+        color: #09bb07;
+    }
+    .iconfail {
+        color: #c22414;
+    }
+    .icontishi {
+        color: #ea9518;
+    }
+}
+.moveOut {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s linear 0s, visibility 0s linear 0.3s;
+}
+
+@keyframes moveIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
