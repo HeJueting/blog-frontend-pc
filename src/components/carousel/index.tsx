@@ -21,6 +21,8 @@ const Carousel: React.FC = () => {
 			}
 		}
 	};
+
+	// 每隔10s钟轮播一次
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			carouselRun();

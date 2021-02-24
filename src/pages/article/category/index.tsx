@@ -107,7 +107,7 @@ const Category: React.FC<ICreateProps> = ({ changeCategory }) => {
 							}}
 						/>
 					) : (
-						<span>({item.articles})</span>
+						<span>{item.articles}</span>
 					)}
 				</p>
 				{item.children && (

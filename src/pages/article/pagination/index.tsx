@@ -10,7 +10,7 @@ interface IPageProps {
 	setPage: (page: number) => void;
 }
 
-const Page: React.FC<IPageProps> = ({
+const Pagination: React.FC<IPageProps> = ({
 	page = 1,
 	total = 1,
 	pageSize = 10,
@@ -48,4 +48,4 @@ const Page: React.FC<IPageProps> = ({
 	);
 };
 
-export default Page;
+export default Pagination;

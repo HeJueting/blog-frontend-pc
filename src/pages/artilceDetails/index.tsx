@@ -78,11 +78,15 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 
 	return (
 		<div className={style["article-details"]}>
+			{/* 轮播图 */}
 			<Carousel />
+
+			{/* 文章内容详情 */}
 			<div className={style["article-box"]}>
 				<div className={style["article-wrap"]}>
 					{/* 标题 */}
 					<h1 className={style["article-title"]}>{articleData.title}</h1>
+
 					{/* 基本信息：时间、分类、标签 */}
 					<div className={style["article-info"]}>
 						<div className={style["info-wrap"]}>
@@ -104,11 +108,13 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 							)}
 						</div>
 					</div>
+
 					{/* 文章正文内容 */}
 					<div
 						className={`${style["article-content"]} braft-output-context`}
 						dangerouslySetInnerHTML={{ __html: articleData.html }}
 					></div>
+
 					{/* 点赞，分享 */}
 					<div className={style["article-operate"]}>
 						<Icon
@@ -122,6 +128,7 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 							className={style["icon"]}
 						/>
 					</div>
+
 					{/* 评论 */}
 					<Comment
 						dataSource={commentData}

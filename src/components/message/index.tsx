@@ -11,7 +11,7 @@ interface IMessageProps {
 // Message组件
 const Message: React.FC<IMessageProps> = ({ msg, type }) => {
 	const [visible, setVisible] = useState(true);
-	const typeMap = {
+	const iconTyps = {
 		success: "iconsuccess",
 		error: "iconfail",
 		info: "icontishi",
@@ -38,8 +38,8 @@ const Message: React.FC<IMessageProps> = ({ msg, type }) => {
 	return (
 		<div className={`${style["message"]} ${!visible && style["moveOut"]}`}>
 			<Icon
-				type={typeMap[type]}
-				className={`${style["iconfont"]} ${style[typeMap[type]]}`}
+				type={iconTyps[type]}
+				className={`${style["iconfont"]} ${style[iconTyps[type]]}`}
 			/>
 			<span>{msg}</span>
 		</div>

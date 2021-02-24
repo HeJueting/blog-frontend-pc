@@ -2,31 +2,27 @@ import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import Icon from "../icon";
 
-// 接口：props
-interface IBackTopProps {
-	scrollDom: React.ReactNode;
-}
-
-const BackTop: React.FC<IBackTopProps> = ({ scrollDom }) => {
+const BackTop: React.FC = () => {
 	const [show, setShow] = useState(false);
 
 	// 监听滚轮滚动
 	useEffect(() => {
+		const scrollDom = document.getElementById("scroll-content");
 		const litsen = () => {
-			if (scrollDom["current"].scrollTop > 100) {
+			if (scrollDom.scrollTop > 100) {
 				setShow(true);
 			} else {
 				setShow(false);
 			}
 		};
-		scrollDom["current"].addEventListener("scroll", litsen);
+		scrollDom.addEventListener("scroll", litsen);
 		return () => {
-			scrollDom["current"].removeEventListener("scroll", litsen);
+			scrollDom.removeEventListener("scroll", litsen);
 		};
 	});
 
 	const backTop = () => {
-		scrollDom["current"].scrollTo({
+		document.getElementById("scroll-content").scrollTo({
 			top: 0,
 			behavior: "smooth",
 		});
