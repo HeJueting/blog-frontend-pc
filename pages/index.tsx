@@ -9,7 +9,6 @@ function App({ hotArticles }) {
         <>
             <Head>
                 <title>hejueting的博客-主页</title>
-                <script src="/bubbly-bg.js"></script>
             </Head>
             <Home hotArticles={hotArticles} />
         </>

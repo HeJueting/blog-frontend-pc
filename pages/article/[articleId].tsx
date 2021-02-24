@@ -10,8 +10,6 @@ function App({ initialData }) {
         <>
             <Head>
                 <title>hejueting的博客-{initialData.article.title}</title>
-                <link rel="stylesheet" href="/braft-editor.css" />
-                <link rel="stylesheet" href="/code-highlighter.css" />
             </Head>
             <ArticleDetails initialData={initialData} />
         </>

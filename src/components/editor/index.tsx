@@ -1,4 +1,4 @@
-import React, { useState, useImperativeHandle, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // editor编辑器扩展
 import BraftEditor from "braft-editor";
 import CodeHighlighter from "braft-extensions/dist/code-highlighter";
