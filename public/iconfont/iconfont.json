@@ -6,6 +6,20 @@
   "description": "博客PC端",
   "glyphs": [
     {
+      "icon_id": "3582",
+      "name": "太阳",
+      "font_class": "taiyang",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5238698",
+      "name": "月亮",
+      "font_class": "yueliang",
+      "unicode": "eddd",
+      "unicode_decimal": 60893
+    },
+    {
       "icon_id": "7996031",
       "name": "取消 ",
       "font_class": "quxiao",

@@ -10,15 +10,12 @@ const App: React.FC = () => {
             <div
                 style={{
                     minHeight: "calc(100vh - 14vw)",
-                    background: "#fff",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                 }}
             >
-                <h5 style={{ color: "#000" }}>
-                    生 活 页 面， 正 在 开 发 中 . . . . . .
-                </h5>
+                <h5>生 活 页 面， 正 在 开 发 中 . . . . . .</h5>
             </div>
         </>
     );
