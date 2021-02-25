@@ -56,3 +56,39 @@ export function timeFormat(stamp: number | string, format: number) {
 
 	return `${year}-${month}-${day}`;
 }
+
+// 更新主题
+export function updateTheme(className: string, dispatch: React.Dispatch<any>) {
+	// 更新主题
+	dispatch({
+		type: "SET_THEME",
+		params: {
+			theme: className,
+		},
+	});
+	// 更新body的class
+	const bodyDom = document.body;
+	bodyDom.setAttribute("class", `theme-${className}`);
+}
+
+// 设置bubbly
+export function setBubbly(config: any) {
+	// 判断是否存在bubbly这个canvas元素
+	let bubblyCanvas = document.getElementById("bubbly-canvas");
+	if (!bubblyCanvas) {
+		bubblyCanvas = document.createElement("canvas");
+		bubblyCanvas.setAttribute("id", "bubbly-canvas");
+		bubblyCanvas.setAttribute(
+			"style",
+			`position: fixed; z-index: -1; left: 0; top: 0; min-width: 100vw; min-height: 100vh;`
+		);
+		document.body.appendChild(bubblyCanvas);
+		config.canvas = bubblyCanvas;
+	}
+	window.bubbly(config);
+}
+// 清除背景
+export function clearBubbly() {
+	const bubblyCanvas = document.getElementById("bubbly-canvas");
+	document.body.removeChild(bubblyCanvas);
+}
