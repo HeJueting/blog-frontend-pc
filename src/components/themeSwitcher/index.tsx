@@ -5,9 +5,10 @@ import Icon from "../icon";
 
 const ThemeSwitcher: React.FC = () => {
     // store
-    const { dispatch } = useContext(context);
+    const { state, dispatch } = useContext(context);
     // 是否开启夜间模式
     const [isOpen, setIsOpen] = useState(false);
+    const { settingInfo } = state;
 
     return (
         <div className={style["switcher-box"]}>
@@ -16,9 +17,12 @@ const ThemeSwitcher: React.FC = () => {
                 className={style["thumb"]}
                 style={{ left: isOpen ? "1.3vw" : "-0.9vw" }}
                 onClick={() => {
+                    const themeName = !isOpen ? "dark" : "light";
                     dispatch({
                         type: "SET_THEME",
-                        params: { theme: !isOpen ? "dark" : "light" },
+                        params: {
+                            theme: settingInfo.themeConfig[themeName],
+                        },
                     });
                     setIsOpen(!isOpen);
                 }}

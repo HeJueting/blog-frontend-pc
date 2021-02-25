@@ -46,11 +46,21 @@ const Menu: React.FC<IMenuProps> = ({ visible, setVisible }) => {
     // 展开
     const open = () => {
         setVisible(true);
+        window.bubbly({
+            radiusFunc: () => 4 + Math.random() * 25,
+            colorStart: "#791a1f",
+            colorStop: "#791a1f",
+        });
     };
     // 关闭
     const close = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) {
             setVisible(false);
+            window.bubbly({
+                radiusFunc: () => 0,
+                colorStart: "#fff",
+                colorStop: "#fff",
+            });
         }
     };
 

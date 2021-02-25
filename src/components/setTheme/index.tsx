@@ -1,16 +1,9 @@
 import { useEffect, useContext } from "react";
 import lodash from "../../utils/lodash";
 import context from "../../store/context";
-import darkTheme from "./dark-theme";
-import lightTheme from "./light-theme";
-
-const themeTypes = {
-    light: lightTheme,
-    dark: darkTheme,
-};
 
 const SetTheme: () => null = () => {
-    const { state } = useContext(context);
+    const { state, dispatch } = useContext(context);
     const { theme } = state;
 
     const setTheme: () => void = () => {
@@ -22,7 +15,7 @@ const SetTheme: () => null = () => {
         }
         // 设置CSS变量
         let styleStr = "";
-        lodash.forOwn(themeTypes[theme], (value: string, key: string) => {
+        lodash.forOwn(theme, (value: string, key: string) => {
             styleStr += `--${key}:${value};`;
         });
         styleDom.innerHTML = `body{${styleStr}}`;
@@ -38,7 +31,6 @@ const SetTheme: () => null = () => {
     };
 
     useEffect(() => {
-        console.log("设置主题：", theme);
         setTheme();
     }, [theme]);
 

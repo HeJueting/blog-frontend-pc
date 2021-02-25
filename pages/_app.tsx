@@ -33,15 +33,10 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
     const noFooterRouters = ["/", "/resume"];
 
     useEffect(() => {
+        // 路由监听
         router.events.on("routeChangeStart", () => {
             // 展示loading
             window.$setLoading(true);
-            // 初始化背景
-            window.bubbly({
-                radiusFunc: () => 4 + Math.random() * 25,
-                colorStart: "#791a1f",
-                colorStop: "#791a1f",
-            });
         });
         router.events.on("routeChangeComplete", () => {
             // loadin消失

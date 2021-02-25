@@ -2,6 +2,13 @@ import { useEffect, useContext } from "react";
 import context from "../../store/context";
 import settingAxios from "../../../src/api/setting";
 import userAxios from "../../../src/api/user";
+import darkTheme from "./dark-theme";
+import lightTheme from "./light-theme";
+
+const themeConfig = {
+    light: lightTheme,
+    dark: darkTheme,
+};
 
 const SetStore: () => null = () => {
     const { dispatch } = useContext(context);
@@ -11,10 +18,19 @@ const SetStore: () => null = () => {
         // 博客配置项
         const settingRes = await settingAxios.search();
         if (settingRes.code === 0) {
+            settingRes.data.themeConfig = themeConfig;
+            // 初始化博客配置
             dispatch({
                 type: "SET_SETTINGINFO",
                 params: {
                     settingInfo: settingRes.data,
+                },
+            });
+            // 初始化主题配置（默认为白天主题）
+            dispatch({
+                type: "SET_THEME",
+                params: {
+                    theme: settingRes.data.themeConfig.light,
                 },
             });
         }

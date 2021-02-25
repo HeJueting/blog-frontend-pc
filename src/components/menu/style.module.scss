@@ -10,8 +10,7 @@
         width: 100%;
         height: 100vh;
         overflow: hidden;
-        background: rgba(0, 0, 0, 0.3);
-
+        background: var(--menu_mask_bg_color);
         .slider-nav {
             position: absolute;
             left: 0;
@@ -19,7 +18,7 @@
             width: 12vw;
             height: 100vh;
             z-index: 1000;
-            background: var(--color_0);
+            background: var(--menu_bg_color);
             transform: translateX(-15.625vw);
             padding-top: 5vw;
             a {
@@ -64,31 +63,31 @@
         left: 2vw;
         top: 2vw;
         z-index: 2;
-        width: 2.6vw;
-        height: 2.6vw;
+        width: 2.8vw;
+        height: 2.8vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         border-radius: 100%;
-        background: var(--color_11);
+        background: var(--menu_icon_bg_color);
         opacity: 0.8;
         transition: all 0.2s linear 0s;
         div {
             width: 1.4vw;
-            height: 0.28vw;
+            height: 0.2vw;
             border-radius: 0.5vw;
-            background: var(--color_0);
+            background: var(--bg_color);
             &:not(:first-child) {
-                margin-top: 0.2vw;
+                margin-top: 0.24vw;
             }
         }
         &:before {
             content: "";
-            width: 2.6vw;
-            height: 2.6vw;
+            width: 2.8vw;
+            height: 2.8vw;
             border-radius: 100%;
-            border: 0.2vw solid var(--color_11);
+            border: 0.2vw solid var(--menu_icon_bg_color);
             position: absolute;
             top: -0.24vw;
             cursor: pointer;
@@ -103,15 +102,11 @@
     }
     @keyframes menuIconPulse {
         0% {
-            transform: scale(0);
-            opacity: 0;
-        }
-        10% {
             transform: scale(1);
             opacity: 0.5;
         }
         50% {
-            transform: scale(2);
+            transform: scale(1.6);
             opacity: 0;
         }
         100% {

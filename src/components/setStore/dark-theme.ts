@@ -6,17 +6,26 @@ export default {
     border_color: "#30363d",
     bg_color: "#0d1117",
     bg_hover_color: "#161b22",
+
     // 滚动条
     scrollbar_bg_color: "rgb(66,66,66)",
     scrollbar_thumb_color: "rgb(104,104,104)",
+
+    // 菜单
+    menu_bg_color: "#161b22",
+    menu_mask_bg_color: "rgba(0, 0, 0, 0.3)",
+    menu_icon_bg_color: "rgba(255, 255, 255, 0.65)",
+
     // footer
     footer_bg_color: "#161b22",
     footer_font_color: "#fff",
     footer_font_hover_color: "rgba(255,255,255,0.7)",
+
     // backTop
     backTop_color: "#fff",
     backTop_bg_color: "rgba(0,0,0,0.65)",
     backTop_bg_hover_color: "rgba(0,0,0,0.55)",
+
     // themeSwitcher
     themeSwitcher_bg_color: "#271052",
     themeSwitcher_border_color: "#3c1e70",
