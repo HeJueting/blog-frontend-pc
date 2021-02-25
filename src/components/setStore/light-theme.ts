@@ -6,6 +6,7 @@ export default {
 	border_color: "#e1e4e8",
 	bg_color: "#fff",
 	bg_hover_color: "#f6f8fa",
+	placeholder_color: "rgba(0, 0, 0, 0.3)",
 
 	// 滚动条
 	scrollbar_bg_color: "rgb(241,241,241)",
@@ -28,6 +29,10 @@ export default {
 	backTop_color: "#fff",
 	backTop_bg_color: "rgba(0,0,0,0.65)",
 	backTop_bg_hover_color: "rgba(0,0,0,0.55)",
+
+	// loading
+	loading_color: "rgba(0,0,0,0.85)",
+	loading_bg_color: "rgba(255, 255, 255, 0.85)",
 
 	// themeSwitcher
 	themeSwitcher_bg_color: "#fff",
