@@ -72,13 +72,13 @@ body {
 
 // 滚动条
 ::-webkit-scrollbar {
-    width: 0.4vw;
-    height: 0.4vw;
-    background: var(--color_11);
+    width: 0.6vw;
+    height: 0.6vw;
+    background: var(--scrollbar_bg_color);
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 0.3vw;
-    background: var(--color_1);
+    background: var(--scrollbar_thumb_color);
 }
 
 // 全局消息提示

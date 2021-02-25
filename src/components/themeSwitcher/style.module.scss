@@ -8,8 +8,8 @@
         height: 1.25vw;
         border-radius: 1.25vw;
         box-sizing: border-box;
-        background: var(--bg_color);
-        border: 0.15vw solid var(--border_color);
+        background: var(--themeSwitcher_bg_color);
+        border: 0.2vw solid var(--themeSwitcher_border_color);
     }
     .thumb {
         cursor: pointer;

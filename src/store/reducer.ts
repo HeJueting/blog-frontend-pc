@@ -1,6 +1,6 @@
 // 接口：state
 interface IState {
-    theme: any;
+    theme: string;
     loading: boolean;
     settingInfo: any;
     userInfo: any;

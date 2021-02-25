@@ -11,7 +11,7 @@ const Provider: React.FC<IProviderProps> = ({ children }) => {
     // 初始化state
     const initialState = {
         loading: true,
-        theme: "linght",
+        theme: "light",
         settingInfo: {},
         userInfo: {},
     };

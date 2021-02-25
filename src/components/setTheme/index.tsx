@@ -38,6 +38,7 @@ const SetTheme: () => null = () => {
     };
 
     useEffect(() => {
+        console.log("设置主题：", theme);
         setTheme();
     }, [theme]);
 

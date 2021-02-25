@@ -16,12 +16,11 @@ const ThemeSwitcher: React.FC = () => {
                 className={style["thumb"]}
                 style={{ left: isOpen ? "1.3vw" : "-0.9vw" }}
                 onClick={() => {
-                    setIsOpen(!isOpen);
-                    // 初始化主题色
                     dispatch({
                         type: "SET_THEME",
-                        params: { theme: isOpen ? "dark" : "light" },
+                        params: { theme: !isOpen ? "dark" : "light" },
                     });
+                    setIsOpen(!isOpen);
                 }}
             >
                 <Icon
