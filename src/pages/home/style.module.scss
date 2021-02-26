@@ -25,12 +25,11 @@
             border-radius: 100%;
             padding: 1px;
             margin-bottom: 1.6vw;
-            box-shadow: 0 0 0.5vw var(--color_11);
+            box-shadow: 0 0 0.5vw var(--bg_color);
             font-size: 4vw;
-            color: var(--color_11);
             text-align: center;
             line-height: 9vw;
-            background: var(--color_11);
+            background: var(--bg_color);
             img {
                 display: block;
                 width: 9vw;
@@ -40,7 +39,7 @@
         }
         .section-one-name {
             font-size: 2vw;
-            color: white;
+            color: var(--home_one_name_color);
             letter-spacing: 2px;
             font-family: "Consolas";
             span {
@@ -49,12 +48,12 @@
         }
         .section-one-job {
             font-size: 0.8vw;
-            color: #d3d1d1;
+            color: var(--home_one_font_color);
             margin-top: 0.5vw;
         }
         .section-one-motto {
             margin-top: 4vw;
-            color: #d3d1d1;
+            color: var(--home_one_font_color);
             font-size: 1.8rem;
             max-width: 35vw;
             text-indent: 2vw;
@@ -64,7 +63,7 @@
 }
 // 第二屏
 .section-two {
-    background: var(--color_11);
+    background: var(--bg_color);
     .section-two-left {
         position: relative;
         width: 38vw;
@@ -77,9 +76,9 @@
             z-index: 2;
             width: 35vw;
             height: 22vw;
-            background: var(--color_11);
             padding: 2vw;
             box-sizing: border-box;
+            background: var(--bg_color);
         }
         &::before {
             position: absolute;
@@ -88,7 +87,7 @@
             content: "";
             width: 22vw;
             height: 28vw;
-            background: var(--color_0);
+            background: var(--home_two_img_bg_color);
             z-index: 1;
         }
     }
@@ -96,7 +95,7 @@
         position: relative;
         width: 30vw;
         height: 22vw;
-        background: var(--color_0);
+        background: var(--home_two_img_bg_color);
         .section-two-right-title {
             position: absolute;
             top: -4.2vw;
@@ -107,17 +106,17 @@
                 font-family: sans-serif;
                 &:nth-child(1),
                 &:nth-child(2) {
-                    color: var(--color_0);
+                    color: var(--home_title_color);
                     margin-right: 0.6vw;
                 }
                 &:nth-child(3),
                 &:nth-child(4) {
                     position: relative;
-                    color: var(--color_7);
+                    color: var(--font_red_color);
                     &::before {
                         position: absolute;
                         font-size: 1.2rem;
-                        color: var(--color_0);
+                        color: var(--home_title_color);
                         font-weight: normal;
                     }
                 }
@@ -143,6 +142,7 @@
             height: 100%;
             padding: 1.6vw;
             box-sizing: border-box;
+            color: var(--home_two_font_color);
             .context-introduction {
                 margin-bottom: 4vw;
                 text-indent: 2vw;
@@ -185,7 +185,7 @@
                 width: 100%;
                 height: 0;
                 border-radius: 0.3vw;
-                background: var(--color_11);
+                background: var(--home_three_color);
                 transition: all 0.3s linear 0s;
             }
             .three-icon-wrap {
@@ -193,8 +193,9 @@
                 z-index: 1;
                 padding: 2vw;
                 border-radius: 100%;
-                border: 0.3vw solid var(--color_11);
+                border: 0.3vw solid var(--home_three_color);
                 .three-iconfont {
+                    color: var(--home_three_color);
                     font-size: 5rem;
                     transition: color 0.3s linear 0s;
                 }
@@ -205,7 +206,7 @@
                 text-align: center;
                 bottom: -4vw;
                 transition: bottom 0.3s linear 0s;
-                color: var(--color_11);
+                color: var(--home_three_color);
             }
             // 悬浮动画效果
             &:hover {
@@ -215,12 +216,12 @@
                 }
                 .three-title {
                     bottom: 1vw;
-                    color: var(--color_7);
+                    color: var(--font_red_color);
                     transition: all 0.3s linear 0s;
                 }
                 .three-icon-wrap {
                     .three-iconfont {
-                        color: var(--color_7);
+                        color: var(--font_red_color);
                         transition: color 0.3s linear 0s;
                     }
                 }
@@ -230,7 +231,7 @@
 }
 // 第四屏
 .section-four {
-    background: var(--color_11);
+    background: var(--bg_color);
     .section-four-content {
         position: relative;
 
@@ -254,11 +255,10 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 0.2vw solid var(--color_0);
+                    border: 0.2vw solid var(--border_color);
                     box-sizing: border-box;
                     .four-iconbook {
                         font-size: 6rem;
-                        color: var(--color_0);
                         transition: all 0.3s linear 0s;
                     }
                 }
@@ -276,7 +276,7 @@
                     width: 100%;
                     height: 100%;
                     z-index: 2;
-                    background: rgba(0, 0, 0, 0.7);
+                    background: var(--home_four_mask_color);
                     opacity: 0;
                     transition: all 0.3s linear 0s;
                     p {
@@ -292,6 +292,7 @@
                         }
                     }
                     .four-mask-wrap-title {
+                        color: var(--home_four_mask_font_color);
                         text-align: center;
                         margin-top: 4vw;
                         font-size: 2.4rem;
@@ -325,17 +326,17 @@
                 font-family: sans-serif;
                 &:nth-child(1),
                 &:nth-child(2) {
-                    color: var(--color_0);
+                    color: var(--home_title_color);
                     margin-right: 0.6vw;
                 }
                 &:nth-child(3),
                 &:nth-child(4) {
                     position: relative;
-                    color: var(--color_7);
+                    color: var(--font_red_color);
                     &::before {
                         position: absolute;
                         font-size: 1.2rem;
-                        color: var(--color_0);
+                        color: var(--home_title_color);
                         font-weight: normal;
                     }
                 }
@@ -362,7 +363,6 @@
 .section-five {
     position: relative;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.6);
     .section-five-content {
         width: 100%;
         height: calc(100vh - 14vw);
@@ -370,6 +370,7 @@
         justify-content: center;
         // 标题
         .five-context-title {
+            color: var(--home_five_font_color);
             font-size: 5rem;
             margin-top: 8vw;
             margin-bottom: 3vw;
@@ -395,20 +396,19 @@
         }
         // 联系我
         .contact-wrap {
+            color: var(--home_five_font_color);
             .contact-item-wrap {
                 margin-bottom: 1.5vw;
                 .contact-iconfont {
                     margin-right: 1.6vw;
-                    font-size: 3.2rem;
-                    color: var(--color_11);
+                    font-size: 2.8rem;
                     vertical-align: middle;
                 }
                 .icon-github {
                     font-size: 2.4;
                 }
                 span {
-                    font-size: 1.8rem;
-                    color: var(--color_11);
+                    font-size: 1.6rem;
                     vertical-align: middle;
                 }
             }

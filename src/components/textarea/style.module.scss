@@ -1,6 +1,8 @@
 .textarea-wrap {
     display: inline-block;
     .textarea {
+        color: var(--font_color);
+        background: var(--bg_color);
         resize: none;
         display: inline-block;
         min-width: 10vw;

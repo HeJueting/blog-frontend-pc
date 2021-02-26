@@ -3,6 +3,7 @@ export default {
     // 全局
     font_color: "#586069",
     font_blue_color: "#0366d6",
+    font_red_color: "#e34c26",
     border_color: "#e1e4e8",
     bg_color: "#fff",
     bg_hover_color: "#f6f8fa",
@@ -45,4 +46,15 @@ export default {
 
     // modal
     modal_mask_color: "rgba(255,255,255,0.6)",
+
+    // home页面
+    home_title_color: "#24292e",
+    home_one_name_color: "#fff",
+    home_one_font_color: "#d3d1d1",
+    home_two_img_bg_color: "#000000",
+    home_two_font_color: "#aaa",
+    home_three_color: "#fff",
+    home_four_mask_color: "rgba(0, 0, 0, 0.65)",
+    home_four_mask_font_color: "#fff",
+    home_five_font_color: "#fff",
 };
