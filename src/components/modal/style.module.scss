@@ -5,13 +5,14 @@
     z-index: 999;
     width: 100%;
     height: 100vh;
+
     .modal-mask {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.6);
+        background: var(--message_shadow_color);
         z-index: 1;
     }
     .modal-box {
@@ -20,13 +21,13 @@
         transform: translateX(-50%);
         top: 20vh;
         width: 40vw;
-        background: var(--color_11);
+        background: var(--bg_color);
         z-index: 2;
-        color: var(--color_0);
+        border: 0.05vw solid var(--border_color);
         header {
             position: relative;
             padding: 0.6vw 1vw;
-            border-bottom: 0.05vw solid rgba(0, 0, 0, 0.2);
+            border-bottom: 0.05vw solid var(--border_color);
             h4 {
                 font-size: 2rem;
             }
@@ -35,10 +36,9 @@
                 right: 1vw;
                 top: 0.6vw;
                 font-size: 2rem;
-                color: rgba(0, 0, 0, 0.6);
                 &:hover {
                     cursor: pointer;
-                    color: rgba(0, 0, 0, 0.7);
+                    font-weight: bold;
                 }
             }
         }
@@ -49,16 +49,12 @@
         footer {
             display: flex;
             justify-content: flex-end;
-            border-top: 0.05vw solid rgba(0, 0, 0, 0.2);
+            border-top: 0.05vw solid var(--border_color);
             padding: 0.6vw 1vw;
             .button {
                 font-size: 1.4rem;
                 &:first-child {
-                    background: rgba(0, 0, 0, 0.2);
                     margin-right: 0.6vw;
-                    &:hover {
-                        background: rgba(0, 0, 0, 0.3);
-                    }
                 }
             }
         }
