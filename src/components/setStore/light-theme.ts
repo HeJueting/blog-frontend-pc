@@ -2,12 +2,14 @@
 export default {
 	// 全局
 	font_color: "#586069",
+	font_hover_color: "#000",
 	font_blue_color: "#0366d6",
 	font_red_color: "#e34c26",
 	border_color: "#e1e4e8",
 	bg_color: "#fff",
 	bg_hover_color: "#f6f8fa",
 	placeholder_color: "rgba(0, 0, 0, 0.4)",
+	boxshadow_color: "rgba(0,0,0,0.3)",
 
 	// 滚动条
 	scrollbar_bg_color: "rgb(241,241,241)",
@@ -62,4 +64,7 @@ export default {
 	home_four_mask_color: "rgba(0, 0, 0, 0.65)",
 	home_four_mask_font_color: "#fff",
 	home_five_font_color: "#fff",
+
+	// resume页面
+	resume_lock_bg_color: "",
 };

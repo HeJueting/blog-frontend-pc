@@ -1,49 +1,49 @@
 .category {
-    color: #999;
-    .parent {
-        position: relative;
-        .item {
-            padding: 0.5vw 0;
-            font-size: 1.6rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            &:hover {
-                cursor: pointer;
-                color: var(--color_0);
-            }
-            .expand-icon {
-                font-size: 1.2rem;
-                transition: all 0.2s ease-in-out 0s;
-            }
-        }
-        .title {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            transition: all 0.2s linear 0s;
-            padding-bottom: 0.6vw;
-            &::before {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                content: "";
-                width: 0%;
-                border-bottom: 0.05vw dashed var(--color_0);
-            }
-            &:hover {
-                cursor: pointer;
-                &::before {
-                    transition: all 0.2s linear 0s;
-                    width: 100%;
-                }
-            }
-        }
-        .active-title {
-            color: var(--color_0);
-        }
-        .children {
-            padding-left: 2vw;
-        }
-    }
+	.parent {
+		position: relative;
+		.item {
+			padding: 0.5vw 0;
+			font-size: 1.8rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			&:hover {
+				cursor: pointer;
+				color: var(--font_hover_color);
+			}
+			.expand-icon {
+				font-size: 1.2rem;
+				transition: all 0.2s ease-in-out 0s;
+			}
+		}
+		.title {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			transition: all 0.2s linear 0s;
+			padding-bottom: 0.6vw;
+			&::before {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				content: "";
+				width: 0%;
+				border-bottom: 0.05vw dashed var(--font_color);
+			}
+			&:hover {
+				cursor: pointer;
+				&::before {
+					transition: all 0.2s linear 0s;
+					width: 100%;
+				}
+			}
+		}
+		.active-title {
+			font-weight: bold;
+			color: var(--font_hover_color);
+		}
+		.children {
+			padding-left: 2vw;
+		}
+	}
 }
