@@ -3,8 +3,7 @@ export default {
 	// 全局
 	font_color: "#8b949e",
 	font_hover_color: "#c9d1d9",
-	font_blue_color: "#0366d6",
-	font_red_color: "#e34c26",
+	font_red_color: "#d7431e",
 	border_color: "#30363d",
 	bg_color: "#0d1117",
 	bg_hover_color: "#161b22",

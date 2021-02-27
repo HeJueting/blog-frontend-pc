@@ -1,5 +1,5 @@
 .article-details {
-	background: var(--color_11);
+	background: var(--bg_color);
 	.article-box {
 		position: relative;
 		z-index: 9;
@@ -7,18 +7,18 @@
 		margin-top: -16vw;
 		width: 70vw;
 		padding: 3vw;
-		border: var(--color_11) solid 0.2vw;
+		border: 0.2vw solid var(--bg_color);
 		box-sizing: border-box;
 		.article-wrap {
 			box-sizing: border-box;
 			width: 64vw;
 			padding: 2vw;
-			background: var(--color_11);
+			background: var(--bg_color);
 			min-height: 60vh;
-			box-shadow: 0 0 0.2vw 0.2vw rgb(0 0 0 / 20%);
-			color: var(--color_0);
+			box-shadow: 0 0 0.2vw 0.2vw var(--boxshadow_color);
 			// 文章标题
 			.article-title {
+				color: var(--font_hover_color);
 				margin-bottom: 2vw;
 				text-align: center;
 				font-size: 4.2rem;
@@ -32,7 +32,6 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					color: #666;
 					&:nth-child(2) {
 						margin: 0 3vw;
 						.icon {
@@ -46,7 +45,7 @@
 					.label {
 						padding: 0.15vw 0.3vw;
 						margin-right: 0.6vw;
-						border: 0.05vw solid #d9d9d9;
+						border: 0.05vw solid var(--border_color);
 						border-radius: 0.2vw;
 						font-size: 1.4rem;
 					}
@@ -63,7 +62,6 @@
 				display: flex;
 				justify-content: flex-end;
 				.icon {
-					color: #666;
 					font-size: 4.8rem;
 					cursor: pointer;
 					transition: color 0.2s linear 0s;
@@ -71,12 +69,12 @@
 						margin-right: 4vw;
 					}
 					&:hover {
-						color: var(--color_6);
+						color: var(--font_red_color);
 						transition: color 0.2s linear 0s;
 					}
 				}
 				.icon-active {
-					color: var(--color_6);
+					color: var(--font_red_color);
 				}
 			}
 		}

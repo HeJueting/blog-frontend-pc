@@ -2,6 +2,7 @@
 	// 标题
 	.comment-title {
 		span {
+			color: var(--font_hover_color);
 			&:first-child {
 				font-size: 2.8rem;
 				font-weight: bold;
@@ -17,20 +18,18 @@
 			justify-content: space-between;
 			align-items: flex-start;
 			padding-bottom: 1.6vw;
-			border-bottom: 0.05vw dashed #d9d9d9;
+			border-bottom: 0.05vw dashed var(--border_color);
 			.img-wrap {
 				width: 5vw;
 				height: 5vw;
 				border-radius: 100%;
-				border: 0.05vw solid #d9d9d9;
-				background: #f5f5f5;
+				border: 0.05vw solid var(--border_color);
 				overflow: hidden;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				.icon {
 					font-size: 5rem;
-					color: #d9d9d9;
 				}
 				img {
 					width: 100%;
@@ -46,10 +45,10 @@
 					align-items: center;
 					margin-bottom: 1vw;
 					.name {
+						color: var(--font_hover_color);
 						font-size: 1.8rem;
 					}
 					p {
-						color: #666;
 						font-size: 1.4rem;
 						.time {
 							margin-right: 2vw;
@@ -57,7 +56,7 @@
 						.reply {
 							&:hover {
 								cursor: pointer;
-								color: var(--color_0);
+								color: var(--font_hover_color);
 							}
 						}
 					}
@@ -66,13 +65,12 @@
 				.reply-content {
 					margin: 1vw 1vw 1.6vw 1vw;
 					padding: 1vw;
-					background: #e5e0e0;
 					border-radius: 0.5vw;
-					color: #565454;
+					border: 0.05vw solid var(--border_color);
 					.header {
 						margin-bottom: 1vw;
 						span {
-							color: var(--color_0);
+							color: var(--font_hover_color);
 							font-weight: bold;
 							margin: 0 0.4vw;
 						}
@@ -83,7 +81,6 @@
 	}
 	// 空内容
 	.empty-box {
-		color: #666;
 		text-align: center;
 		margin-top: 3vw;
 		.icon {
@@ -95,7 +92,7 @@
 	.editor-box {
 		position: relative;
 		margin-top: 3vw;
-		border: 0.05vw solid #d9d9d9;
+		border: 0.05vw solid var(--border_color);
 		.reply-box {
 			position: absolute;
 			right: 1vw;
@@ -111,7 +108,7 @@
 				margin-left: 1vw;
 				&:hover {
 					cursor: pointer;
-					color: var(--color_6);
+					color: var(--font_red_color);
 				}
 			}
 		}
