@@ -51,23 +51,15 @@ const Menu: React.FC<IMenuProps> = ({ visible, setVisible }) => {
 	];
 	// 展开
 	const open = () => {
-		const bgColor = settingInfo.themeConfig[theme].menu_bg_hover_color;
-		setBubbly({
-			radiusFunc: () => 4 + Math.random() * 10,
-			colorStart: bgColor,
-			colorStop: bgColor,
-		});
+		// 获取气泡主题配色
+		const {
+			bubbly_color,
+			bubbly_bg_colorStart,
+			bubbly_bg_colorStop,
+		} = settingInfo.themeConfig[theme];
+		// 设置气泡背景
+		setBubbly(bubbly_color, bubbly_bg_colorStart, bubbly_bg_colorStop);
 		setVisible(true);
-		// // 初始化背景
-		// window.bubbly({
-		// 	colorStart: hexToRgba(theme.color_1, 0.85),
-		// 	colorStop: hexToRgba(theme.color_1, 0.85),
-		// 	bubbles: 400,
-		// 	compose: "source-over",
-		// 	shadowColor: theme.color_12,
-		// 	bubbleFunc: () => `hsla(${Math.random() * 255}, 100%, 50%, .3)`,
-		// 	radiusFunc: () => Math.random() * 2,
-		// });
 	};
 	// 关闭
 	const close = (e: React.MouseEvent<HTMLDivElement>) => {

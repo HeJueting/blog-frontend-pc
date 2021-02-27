@@ -72,19 +72,41 @@ export function updateTheme(className: string, dispatch: React.Dispatch<any>) {
 }
 
 // 设置bubbly
-export function setBubbly(config: any) {
+export function setBubbly(
+	bubbleColor: string,
+	bgStartColor: string,
+	bgStopColor: string
+) {
+	// 配置config
+	const config = {
+		radiusFunc: () => 2 + Math.random() * 4,
+		bubbleFunc: () => bubbleColor,
+		bubbles: 100,
+		blur: 1,
+		colorStart: bgStartColor,
+		colorStop: bgStopColor,
+		canvas: null,
+	};
+
 	// 判断是否存在bubbly这个canvas元素
 	let bubblyCanvas = document.getElementById("bubbly-canvas");
+	const { clientWidth, clientHeight } = document.body;
 	if (!bubblyCanvas) {
 		bubblyCanvas = document.createElement("canvas");
 		bubblyCanvas.setAttribute("id", "bubbly-canvas");
+		bubblyCanvas.setAttribute("width", String(clientWidth));
+		bubblyCanvas.setAttribute("height", String(clientHeight));
 		bubblyCanvas.setAttribute(
 			"style",
 			`position: fixed; z-index: -1; left: 0; top: 0; min-width: 100vw; min-height: 100vh;`
 		);
 		document.body.appendChild(bubblyCanvas);
-		config.canvas = bubblyCanvas;
 	}
+
+	// 添加这个canvas
+	config.canvas = bubblyCanvas;
+
+	// 生成背景
 	window.bubbly(config);
 }
 // 清除背景

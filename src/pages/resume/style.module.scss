@@ -1,11 +1,12 @@
 .resume-box {
-	width: 40vw;
-	background: var(--color_11);
+	width: 44vw;
+	background: var(--bg_color);
 	margin: 0 auto;
 	box-shadow: 0 0 0.2vw 0.2vw rgb(0 0 0 / 20%);
 	.resume-wrap {
 		width: 100%;
 		min-height: 100vh;
+		padding: 2vw;
 		img {
 			max-width: 100%;
 		}
