@@ -66,9 +66,6 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
 				{/* Loading */}
 				<Loading />
 
-				{/* 主题模式切换 */}
-				<ThemeSwitcher />
-
 				{/* 页面正文内容 */}
 				<main
 					id="scroll-content"
@@ -78,6 +75,9 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
 						(visible ? style["wrap-main-out"] : style["wrap-main-in"])
 					}
 				>
+					{/* 主题模式切换 */}
+					<ThemeSwitcher />
+
 					{/* 页面组件 */}
 					<Component {...pageProps} />
 

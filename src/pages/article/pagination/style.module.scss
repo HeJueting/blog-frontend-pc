@@ -2,14 +2,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--font_hover_color);
 	.number {
 		font-size: 2rem;
 		font-weight: bold;
 		margin: 0 2vw;
+		color: var(--font_hover_color);
 	}
 	.total {
-		color: #666;
 		font-size: 1.2rem;
 		margin-left: 2vw;
 	}
