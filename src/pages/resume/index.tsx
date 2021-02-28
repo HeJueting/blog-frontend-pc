@@ -1,8 +1,7 @@
-import React, { useEffect, useContext, useState } from "react";
-import context from "../../store/context";
+import React, { useEffect, useState } from "react";
 import lodash from "../../utils/lodash";
 import style from "./style.module.scss";
-import { hexToRgba, getUrlQuery } from "../../utils/help";
+import { getUrlQuery } from "../../utils/help";
 
 import Icon from "../../components/icon";
 import Modal from "../../components/modal";
@@ -11,9 +10,6 @@ import resumeAxios from "../../api/resume";
 import message from "../../components/message";
 
 const Resume: React.FC = () => {
-	// store
-	const { state } = useContext(context);
-	const { theme } = state;
 	// 简历信息
 	const [html, setHtml] = useState<string>("");
 	// 访问简历的弹窗

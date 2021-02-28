@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
-import { timeFormat } from "../../utils/help";
-import lodash from "../../utils/lodash";
 import Prism from "prismjs";
+import lodash from "../../utils/lodash";
+import { timeFormat, getUrlQuery } from "../../utils/help";
 import articleAxios from "../../api/article";
-
+// 组件
 import Carousel from "../../components/carousel";
 import Icon from "../../components/icon";
 import message from "../../components/message";
 import Comment from "../../components/comment";
+import Lock from "./lock";
 
 // 接口：props
 interface IArticleDetailsProps {
@@ -19,11 +20,40 @@ interface IArticleDetailsProps {
 }
 
 const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
+	// 该文章是否处于被锁的状态
+	const [isLock, setIsLock] = useState<boolean>(false);
 	// 文章，评论数据
 	const [articleData, setArticleData] = useState<any>({});
 	const [commentData, setCommentData] = useState<any[]>([]);
 	// 点赞
 	const [isGood, setIsGood] = useState<boolean>(false);
+
+	// 判断该文章是否可以解锁查看
+	const checkIsLock = () => {
+		// 默认为上锁状态
+		let lockStatus = true;
+		// 文章权限: 公开(0)、密码(1)
+		const { purview, password, isLogin, _id } = initialData.article;
+		const query: any = getUrlQuery(window.location.href);
+		// 公开权限
+		if (purview === 0) {
+			lockStatus = false;
+		}
+		// 密码权限，并且url上携带了正确的password
+		else if (purview === 1 && password === query.password) {
+			lockStatus = false;
+		}
+		// 处于登录状态的本人
+		else if (isLogin) {
+			lockStatus = false;
+		}
+		// 如果已经登陆过，不用校验
+		else if (sessionStorage.getItem(`article-${_id}`) === "yes") {
+			lockStatus = false;
+		}
+		// 设置上锁状态
+		setIsLock(lockStatus);
+	};
 
 	// 初始化页面
 	useEffect(() => {
@@ -34,6 +64,8 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 		articleAxios.newLook({
 			_id: initialData.article._id,
 		});
+		// 校验文章上锁状态
+		checkIsLock();
 	}, []);
 
 	// 初始化点赞信息
@@ -63,7 +95,6 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 			message.info("您已经点过赞啦，不允许重复点赞 ~");
 		}
 	};
-
 	// 点击分享
 	const clickShare = () => {
 		const input = document.createElement("input");
@@ -81,63 +112,61 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 			{/* 轮播图 */}
 			<Carousel />
 
-			{/* 文章内容详情 */}
-			<div className={style["article-box"]}>
-				<div className={style["article-wrap"]}>
-					{/* 标题 */}
-					<h1 className={style["article-title"]}>{articleData.title}</h1>
+			{isLock ? (
+				<Lock setIsLock={setIsLock} articleInfo={initialData.article} />
+			) : (
+				// 文章内容详情
+				<div className={style["article-box"]}>
+					<div className={style["article-wrap"]}>
+						{/* 标题 */}
+						<h1 className={style["article-title"]}>{articleData.title}</h1>
 
-					{/* 基本信息：时间、分类、标签 */}
-					<div className={style["article-info"]}>
-						<div className={style["info-wrap"]}>
-							<Icon type="icontime" className={style["icon"]} />
-							<span>{timeFormat(articleData.createAt, 0)}</span>
+						{/* 基本信息：时间、分类、标签 */}
+						<div className={style["article-info"]}>
+							<div className={style["info-wrap"]}>
+								<Icon type="icontime" className={style["icon"]} />
+								<span>{timeFormat(articleData.createAt, 0)}</span>
+							</div>
+							<div className={style["info-wrap"]}>
+								<Icon type="iconfan-category" className={style["icon"]} />
+								<span>{articleData.categoryName}</span>
+							</div>
+							<div className={style["info-wrap"]}>
+								<Icon type="iconshengqian" className={style["icon"]} />
+								{lodash.get(articleData.tags, "length") ? (
+									articleData.tags.map((tag: string) => <span className={style["label"]}>{tag}</span>)
+								) : (
+									<span>无</span>
+								)}
+							</div>
 						</div>
-						<div className={style["info-wrap"]}>
-							<Icon type="iconfan-category" className={style["icon"]} />
-							<span>{articleData.categoryName}</span>
-						</div>
-						<div className={style["info-wrap"]}>
-							<Icon type="iconshengqian" className={style["icon"]} />
-							{lodash.get(articleData.tags, "length") ? (
-								articleData.tags.map((tag: string) => (
-									<span className={style["label"]}>{tag}</span>
-								))
-							) : (
-								<span>无</span>
-							)}
-						</div>
-					</div>
 
-					{/* 文章正文内容 */}
-					<div
-						className={`${style["article-content"]} braft-output-context`}
-						dangerouslySetInnerHTML={{ __html: articleData.html }}
-					></div>
+						{/* 文章正文内容 */}
+						<div
+							className={`${style["article-content"]} braft-output-context`}
+							dangerouslySetInnerHTML={{ __html: articleData.html }}
+						></div>
 
-					{/* 点赞，分享 */}
-					<div className={style["article-operate"]}>
-						<Icon
-							onClick={clickGood}
-							type="icondianzan"
-							className={`${style["icon"]} ${isGood && style["icon-active"]}`}
+						{/* 点赞，分享 */}
+						<div className={style["article-operate"]}>
+							<Icon
+								onClick={clickGood}
+								type="icondianzan"
+								className={`${style["icon"]} ${isGood && style["icon-active"]}`}
+							/>
+							<Icon onClick={clickShare} type="iconzhuanfa" className={style["icon"]} />
+						</div>
+
+						{/* 评论 */}
+						<Comment
+							dataSource={commentData}
+							setDataSource={setCommentData}
+							category={0}
+							categoryId={articleData._id}
 						/>
-						<Icon
-							onClick={clickShare}
-							type="iconzhuanfa"
-							className={style["icon"]}
-						/>
 					</div>
-
-					{/* 评论 */}
-					<Comment
-						dataSource={commentData}
-						setDataSource={setCommentData}
-						category={0}
-						categoryId={articleData._id}
-					/>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };

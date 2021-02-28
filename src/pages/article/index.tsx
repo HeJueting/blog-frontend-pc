@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
 import style from "./style.module.scss";
+import Link from "next/link";
 import CONFIG from "../../config";
+import lodash from "../../utils/lodash";
 import { timeFormat } from "../../utils/help";
 import articleAxios from "../../api/article";
-import lodash from "../../utils/lodash";
-import Link from "next/link";
-
+// 组件
 import Carousel from "../../components/carousel";
 import Icon from "../../components/icon";
 import Catrgory from "./category";
 import Pagination from "./pagination";
-
+// 接口
 import { IArticleList } from "../../typing/api/article";
 
 // 接口：props
 interface IArticleProps {
 	initialData: any;
 }
-
 const Article: React.FC<IArticleProps> = ({ initialData }) => {
 	const [articles, setArticles] = useState<any[]>([]);
 	const [category, setCategory] = useState<any>({});
@@ -75,16 +74,12 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
 									className={style["image-wrap"]}
 									style={{
 										backgroundImage:
-											item.bacImg &&
-											`url(${CONFIG.IMAGE_REQUEST_PATH}/article/${item.bacImg}?width=200)`,
+											item.bacImg && `url(${CONFIG.IMAGE_REQUEST_PATH}/article/${item.bacImg}?width=200)`,
 									}}
 								>
 									{item.purview === 1 && (
 										<div className={style["lock"]}>
-											<Icon
-												type="iconxingzhuang"
-												className={style["iconxingzhuang"]}
-											/>
+											<Icon type="iconxingzhuang" className={style["iconxingzhuang"]} />
 										</div>
 									)}
 								</div>
@@ -93,19 +88,11 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
 							{/* 文章右侧信息 */}
 							<div className={style["article-info"]}>
 								<h3>{item.title}</h3>
-								<div className={style["conetxt"]}>{`${item.abstract.slice(
-									1,
-									110
-								)}......`}</div>
-								<div className={style["time"]}>
-									{timeFormat(item.createAt, 0)}
-								</div>
+								<div className={style["conetxt"]}>{`${item.abstract.slice(1, 110)}......`}</div>
+								<div className={style["time"]}>{timeFormat(item.createAt, 0)}</div>
 								<div className={style["about"]}>
 									<p>
-										<Icon
-											type="iconchakanyanjingshishifenxi2"
-											className={style["icon"]}
-										/>
+										<Icon type="iconchakanyanjingshishifenxi2" className={style["icon"]} />
 										<span>{item.look}</span>
 									</p>
 									<p>

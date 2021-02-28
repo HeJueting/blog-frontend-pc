@@ -1,14 +1,6 @@
 import Axios from "../utils/axios";
-import { IArticleList } from "../typing/api/article";
-
-// 接口：查询文章详情
-interface ISearch {
-	id: string;
-}
-// 接口：浏览量+1、点赞量+1
-interface ILookGood {
-	_id: string;
-}
+// 接口
+import { IArticleList, IArticleSearch, IArticleNewLook, IArticleNewGood } from "../typing/api/article";
 
 const articleAxios = {
 	// 查询文章列表
@@ -19,21 +11,21 @@ const articleAxios = {
 			data,
 		}),
 	// 查询文章详情
-	search: (params: ISearch) =>
+	search: (params: IArticleSearch) =>
 		Axios({
 			method: "get",
 			url: "/article/frontend/search",
 			params,
 		}),
 	// 文章浏览数量+1
-	newLook: (params: ILookGood) =>
+	newLook: (params: IArticleNewLook) =>
 		Axios({
 			method: "get",
 			url: "/article/frontend/addLook",
 			params,
 		}),
 	// 文章点赞数量+1
-	newGood: (params: ILookGood) =>
+	newGood: (params: IArticleNewGood) =>
 		Axios({
 			method: "get",
 			url: "/article/frontend/addGood",

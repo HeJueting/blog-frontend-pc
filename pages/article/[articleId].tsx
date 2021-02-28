@@ -35,17 +35,15 @@ export const getStaticPaths = async function () {
 };
 
 // 数据获取
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, ...data }) => {
 	const { articleId } = params;
 	// 查询文章详情
 	const articleRes = await articleAxios.search({
-		id: articleId as string,
+		_id: articleId as string,
 	});
 	// 请求文章分类信息，将文章详情中的分类id展示为分类信息
 	const categoryRes = await articleCategoryAxios.list();
-	const category = categoryRes.data.filter(
-		(item: any) => item._id === articleRes.data.categoryId
-	);
+	const category = categoryRes.data.filter((item: any) => item._id === articleRes.data.categoryId);
 	articleRes.data.categoryName = category[0].name;
 	// 查询文章评论信息
 	const commentRes = await commentAxios.search({

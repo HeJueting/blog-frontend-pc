@@ -1,0 +1,27 @@
+.lock-box {
+	position: relative;
+	width: 100%;
+	padding: 4vw 25vw 8vw 25vw;
+	box-sizing: border-box;
+	p {
+		filter: blur(0.6vw);
+		background: var(--font_color);
+		height: 2vw;
+		margin-top: 8vh;
+	}
+	.lock-wrap {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		.iconxingzhuang {
+			font-size: 20rem;
+			transition: color 0.2s linear 0s;
+			&:hover {
+				cursor: pointer;
+				color: var(--font_hover_color);
+				transition: color 0.2s linear 0s;
+			}
+		}
+	}
+}

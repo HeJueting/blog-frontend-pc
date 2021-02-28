@@ -70,10 +70,7 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
 				<main
 					id="scroll-content"
 					ref={mainWrapRef}
-					className={
-						`${style["wrap-main"]} ` +
-						(visible ? style["wrap-main-out"] : style["wrap-main-in"])
-					}
+					className={`${style["wrap-main"]} ` + (visible ? style["wrap-main-out"] : style["wrap-main-in"])}
 				>
 					{/* 主题模式切换 */}
 					<ThemeSwitcher />
