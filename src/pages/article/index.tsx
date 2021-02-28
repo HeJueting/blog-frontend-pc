@@ -11,6 +11,8 @@ import Icon from "../../components/icon";
 import Catrgory from "./category";
 import Pagination from "./pagination";
 
+import { IArticleList } from "../../typing/api/article";
+
 // 接口：props
 interface IArticleProps {
 	initialData: any;
@@ -45,12 +47,12 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
 
 	// 查询文章信息
 	const searchArticles = async () => {
-		const condition: any = {
+		const condition: IArticleList = {
 			page,
 			pageSize: 6,
 		};
 		if (lodash.get(category, "_id")) {
-			condition.category = category._id;
+			condition.categoryId = category._id;
 		}
 		// 查询文章
 		const res = await articleAxios.list(condition);
