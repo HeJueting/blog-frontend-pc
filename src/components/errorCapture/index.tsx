@@ -1,14 +1,19 @@
 import React, { useEffect } from "react";
+import errorAxios from "../../api/error";
 
 const ErroCapture: React.FC = () => {
     // 捕获网页错误的方法
     const windowCapture = (e: ErrorEvent) => {
-        console.log("错误信息：", e.error.stack);
+        errorAxios.collect({
+            msg: e.error.stack,
+        });
     };
 
     // 捕获promise错误
     const promiseCapture = (e: PromiseRejectionEvent) => {
-        console.log("错误信息：", e.reason.stack);
+        errorAxios.collect({
+            msg: e.reason.stack,
+        });
     };
 
     useEffect(() => {
