@@ -25,21 +25,22 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
 
     // 初始化文章数据
     useEffect(() => {
-        console.log(initialData.data);
-        console.log(initialData.data.test.a);
         setArticles(initialData.data);
         setTotal(initialData.total);
     }, [initialData]);
 
     // 文章类型改变
     useEffect(() => {
-        setPage(1);
-        searchArticles().then((res) => {
-            setArticles(res.data);
-        });
+        if (page !== 1) {
+            setPage(1);
+        } else {
+            searchArticles().then((res) => {
+                setArticles(res.data);
+            });
+        }
     }, [category]);
 
-    // 文章类型改变
+    // 页码数量
     useEffect(() => {
         searchArticles().then((res) => {
             setArticles(res.data);
