@@ -12,7 +12,7 @@ const ErroCapture: React.FC = () => {
     // 捕获promise错误
     const promiseCapture = (e: PromiseRejectionEvent) => {
         errorAxios.collect({
-            msg: e.reason.stack,
+            msg: e.reason.stack || e.reason,
         });
     };
 
