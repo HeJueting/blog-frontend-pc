@@ -1,0 +1,50 @@
+.login-box {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--bg_color);
+    .login-title {
+        margin-bottom: 3vw;
+        font-size: 3.2rem;
+        color: var(--font_red_color);
+    }
+    .login-box {
+        width: 26vw;
+        height: 12vw;
+        border: 0.05vw solid var(--border_color);
+        box-shadow: 0 0 0.3vw var(--boxshadow_color);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 3vw;
+
+        .input {
+            width: 100%;
+        }
+        .button {
+            width: 100%;
+        }
+        // 验证码
+        .code-box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .input {
+                width: calc(100% - 10vw);
+            }
+            .button {
+                width: 8vw;
+            }
+            .disable-button {
+                width: 8vw;
+                cursor: not-allowed;
+                color: var(--font_color);
+                background: var(--bg_hover_color);
+            }
+        }
+    }
+}

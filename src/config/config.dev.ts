@@ -5,6 +5,8 @@ const devConfig = {
     IMAGE_REQUEST_PATH: "http://127.0.0.1:7070/minio/frontend/access/image",
     // 网站发布时间
     PUBLISH_TIME: 1609430400000,
+    // 博客管理端地址
+    BLOG_ADMIN_URL: "http://localhost:3000",
 };
 
 export default devConfig;

@@ -29,9 +29,10 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
     const mainWrapRef = useRef(null);
     // router
     const router = useRouter();
-    // 是否展示footer
+    // 菜单切换
     const [visible, setVisible] = useState(false);
-    const noFooterRouters = ["/", "/resume"];
+    // 是否展示footer
+    const noFooterRouters = ["/", "/resume", "/login"];
 
     useEffect(() => {
         // 路由监听
