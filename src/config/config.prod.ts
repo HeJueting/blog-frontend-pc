@@ -1,8 +1,10 @@
+const server_url = "http://api.blog.hejueting.cn";
+
 const prodConfig = {
     // 服务端请求地址
-    REQUEST_BASE_URL: "http://api.blog.hejueting.cn",
+    REQUEST_BASE_URL: server_url,
     // 图片请求地址
-    IMAGE_REQUEST_PATH: "http://api.blog.hejueting.cn/minio/frontend/access/image",
+    IMAGE_REQUEST_PATH: `${server_url}/minio/frontend/access/image`,
     // 网站发布时间
     PUBLISH_TIME: 1614124800000,
     // 博客管理端地址
