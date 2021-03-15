@@ -222,13 +222,13 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                 className={`${style['home-section']} ${style['imgScroll']} ${style['section-three']}`}
                 style={{
                     backgroundImage: `url(${dealBacImg(
-                        settingInfo.firstBacImage
+                        settingInfo.secondBacImage
                     )})`,
                 }}
             >
                 <div className={style['section-three-content']}>
                     {routerInfo.map((item) => (
-                        <Link href={'/'} key={item.title}>
+                        <Link href={item.path} key={item.title}>
                             <div className={style['three-wrap']}>
                                 <div className={style['three-wrap-mask']} />
                                 <div className={style['three-icon-wrap']}>

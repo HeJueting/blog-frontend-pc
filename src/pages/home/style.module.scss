@@ -6,10 +6,10 @@
     justify-content: center;
 }
 .imgScroll {
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
 }
 
 // 第一屏
