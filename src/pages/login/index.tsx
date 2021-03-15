@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import style from "./style.module.scss";
-import userAxios from "../../api/user";
-import localforage from "localforage";
-import CONFIG from "../../config";
+import React, { useEffect, useState } from 'react';
+import style from './style.module.scss';
+import userAxios from '../../api/user';
+import localforage from 'localforage';
+import CONFIG from '../../config';
 
-import Input from "../../components/input";
-import Button from "../../components/button";
-import message from "../../components/message";
+import Input from '../../components/input';
+import Button from '../../components/button';
+import message from '../../components/message';
 
 const Login: React.FC = () => {
     // 用户名，密码
-    const [userName, setUserName] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [userName, setUserName] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     // 邮箱校验码
-    const [code, setCode] = useState<string>("");
+    const [code, setCode] = useState<string>('');
     // 倒计时
     const [count, setCount] = useState<number>(0);
 
@@ -41,11 +41,11 @@ const Login: React.FC = () => {
     // 点击登录
     const login = async () => {
         if (!userName) {
-            message.error("请输入登录昵称");
+            message.error('请输入登录昵称');
         } else if (!password) {
-            message.error("请输入登录密码");
+            message.error('请输入登录密码');
         } else if (!code) {
-            message.error("请输入邮箱验证码");
+            message.error('请输入邮箱验证码');
         } else {
             const res = await userAxios.login({
                 userName,
@@ -53,8 +53,8 @@ const Login: React.FC = () => {
                 code,
             });
             if (res.code === 0) {
-                message.success(`登录成功，系统1s将自动跳转到管理端 ~`);
-                await localforage.setItem("token", res.data.token);
+                message.success(`登录成功，系统将自动跳转到管理端 ~`);
+                await localforage.setItem('token', res.data.token);
                 // 跳转到博客管理系统
                 setTimeout(() => {
                     window.location.href = CONFIG.BLOG_ADMIN_URL;
@@ -64,11 +64,11 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className={style["login-box"]}>
-            <h3 className={style["login-title"]}>博客管理系统 - 后台登录</h3>
-            <div className={style["login-box"]}>
+        <div className={style['login-box']}>
+            <h3 className={style['login-title']}>博客管理系统 - 后台登录</h3>
+            <div className={style['login-box']}>
                 <Input
-                    className={style["input"]}
+                    className={style['input']}
                     placeholder="请输入登录昵称"
                     value={userName}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,7 +76,7 @@ const Login: React.FC = () => {
                     }}
                 />
                 <Input
-                    className={style["input"]}
+                    className={style['input']}
                     placeholder="请输入登录密码"
                     value={password}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,9 +84,9 @@ const Login: React.FC = () => {
                     }}
                     type="password"
                 />
-                <div className={style["code-box"]}>
+                <div className={style['code-box']}>
                     <Input
-                        className={style["input"]}
+                        className={style['input']}
                         placeholder="邮箱验证码"
                         value={code}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,14 +94,16 @@ const Login: React.FC = () => {
                         }}
                     />
                     {count === 0 ? (
-                        <Button className={style["button"]} onClick={getCode}>
+                        <Button className={style['button']} onClick={getCode}>
                             点击获取
                         </Button>
                     ) : (
-                        <Button className={style["disable-button"]}>{count}</Button>
+                        <Button className={style['disable-button']}>
+                            {count}
+                        </Button>
                     )}
                 </div>
-                <Button onClick={login} className={style["button"]}>
+                <Button onClick={login} className={style['button']}>
                     登录
                 </Button>
             </div>
