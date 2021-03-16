@@ -26,7 +26,7 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
     // 初始化文章数据
     useEffect(() => {
         setArticles(initialData.data);
-        setTotal(initialData.total);
+        setTotal(initialData.total === 0 ? 1 : initialData.total);
     }, [initialData]);
 
     // 查询文章信息
@@ -41,6 +41,7 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
         // 查询文章
         const res = await articleAxios.list(condition);
         setArticles(res.data);
+        setTotal(res.total === 0 ? 1 : res.total);
     };
     // 文章类型改变
     useEffect(() => {
@@ -96,7 +97,7 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
                                 <h3>{item.title}</h3>
                                 <div
                                     className={style['conetxt']}
-                                >{`${item.abstract.slice(1, 110)}......`}</div>
+                                >{`${item.abstract.slice(0, 110)}......`}</div>
                                 <div className={style['time']}>
                                     {timeFormat(item.createAt, 0)}
                                 </div>
