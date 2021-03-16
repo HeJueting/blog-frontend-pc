@@ -86,7 +86,10 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                 email,
             });
             if (res.code === 0) {
-                message.success('建议提交成功 ！');
+                setName('');
+                setHtml('');
+                setEmail('');
+                message.success('提交成功 ！');
             }
         }
     };
