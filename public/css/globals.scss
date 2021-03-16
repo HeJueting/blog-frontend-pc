@@ -98,11 +98,11 @@ body {
 
 // 关键字
 .braft-custom-keywords {
-    background: var(--color_6);
+    background: var(--font_red_color);
     border-radius: 0.25vw;
     padding: 0.2vw 0.8vw;
-    color: var(--color_11);
     margin: 0 0.5vw;
+    color: #fff;
 }
 
 // 富文本编辑器
@@ -111,13 +111,16 @@ body {
         white-space: pre-wrap;
         min-height: 1vw;
     }
+    img {
+        max-width: 100%;
+    }
 }
 .bf-container {
     pre,
     code,
     kbd,
     samp {
-        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo,
             Courier, monospace;
     }
 }

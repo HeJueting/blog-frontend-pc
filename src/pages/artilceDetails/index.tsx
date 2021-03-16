@@ -183,7 +183,10 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
                                 />
                                 {lodash.get(articleData.tags, 'length') ? (
                                     articleData.tags.map((tag: string) => (
-                                        <span className={style['label']}>
+                                        <span
+                                            className={style['label']}
+                                            key={tag}
+                                        >
                                             {tag}
                                         </span>
                                     ))
