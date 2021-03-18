@@ -108,7 +108,9 @@ const Resume: React.FC<IResumeProps> = ({ resumeInfo }) => {
             ) : (
                 <div
                     className={`${style['resume-wrap']} braft-output-context`}
-                    dangerouslySetInnerHTML={{ __html: html }}
+                    dangerouslySetInnerHTML={{
+                        __html: html.replace(/<br\s*\/?>/g, '\n'),
+                    }}
                 ></div>
             )}
 

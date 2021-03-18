@@ -200,7 +200,10 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
                         <div
                             className={`${style['article-content']} braft-output-context`}
                             dangerouslySetInnerHTML={{
-                                __html: articleData.html,
+                                __html: articleData.html.replace(
+                                    /<br\s*\/?>/g,
+                                    '\n'
+                                ),
                             }}
                         ></div>
 

@@ -176,8 +176,12 @@ const Comment: React.FC<ICommentProps> = ({
                                         <div
                                             className={'braft-output-context'}
                                             dangerouslySetInnerHTML={{
-                                                __html: getQuoteInfo(item.quote)
-                                                    .html,
+                                                __html: getQuoteInfo(
+                                                    item.quote
+                                                ).html.replace(
+                                                    /<br\s*\/?>/g,
+                                                    '\n'
+                                                ),
                                             }}
                                         ></div>
                                     </div>
@@ -186,7 +190,10 @@ const Comment: React.FC<ICommentProps> = ({
                                 <div
                                     className={'braft-output-context'}
                                     dangerouslySetInnerHTML={{
-                                        __html: item.html,
+                                        __html: item.html.replace(
+                                            /<br\s*\/?>/g,
+                                            '\n'
+                                        ),
                                     }}
                                 ></div>
                             </div>
