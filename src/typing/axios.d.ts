@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // 对axios返回的response添加参数
 declare module 'axios' {
     interface IAxios {
