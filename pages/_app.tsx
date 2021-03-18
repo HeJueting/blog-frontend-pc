@@ -7,6 +7,7 @@ import '../public/css/code-highlighter.css';
 import '../public/css/braft-editor.css';
 import '../public/iconfont/iconfont.css';
 import activeAxios from '../src/api/active';
+import Prism from 'prismjs';
 
 import Menu from '../src/components/menu';
 import SetRem from '../src/components/setRem';
@@ -38,6 +39,14 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
     useEffect(() => {
         // 博客访问量+1
         activeAxios.addLook();
+        // 处理代码高亮换行问题
+        Prism.hooks.add('before-highlight', function (env) {
+            env.element.innerHTML = env.element.innerHTML.replace(
+                /<br\s*\/?>/g,
+                '\n'
+            );
+            env.code = env.element.textContent.replace(/^(?:\r?\n|\r)/, '');
+        });
     }, []);
     useEffect(() => {
         // 路由监听
