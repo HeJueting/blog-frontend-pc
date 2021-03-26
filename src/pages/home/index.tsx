@@ -142,7 +142,9 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                     {settingInfo.aboutMeBacImage && (
                         <img
                             alt="关于我的配图"
-                            src={`${CONFIG.IMAGE_REQUEST_PATH}/setting/${settingInfo.aboutMeBacImage}`}
+                            src={`${CONFIG.IMAGE_REQUEST_PATH}/setting/${
+                                settingInfo.aboutMeBacImage
+                            }?width=${getImageWidthByClientWidth(680)}`}
                         />
                     )}
                 </div>
