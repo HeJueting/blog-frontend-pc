@@ -13,6 +13,7 @@ import Icon from '../../components/icon';
 import message from '../../components/message';
 import Comment from '../../components/comment';
 import Lock from './lock';
+import Anchor from './anchor';
 // 接口
 import { IArticleSearch } from '../../typing/api/article';
 
@@ -140,9 +141,6 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
 
     return (
         <div className={style['article-details']}>
-            {/* 轮播图 */}
-            <Carousel />
-
             {isLock ? (
                 <Lock
                     setIsLock={setIsLock}
@@ -151,87 +149,96 @@ const ArticleDetails: React.FC<IArticleDetailsProps> = ({ initialData }) => {
                 />
             ) : (
                 // 文章内容详情
-                <div className={style['article-box']}>
-                    <div className={style['article-wrap']}>
-                        {/* 标题 */}
-                        <h1 className={style['article-title']}>
-                            {articleData.title}
-                        </h1>
+                <>
+                    {/* 快速阅读导航 */}
+                    <Anchor />
 
-                        {/* 基本信息：时间、分类、标签 */}
-                        <div className={style['article-info']}>
-                            <div className={style['info-wrap']}>
+                    {/* 轮播图 */}
+                    <Carousel />
+
+                    <div className={style['article-box']}>
+                        <div className={style['article-wrap']}>
+                            {/* 标题 */}
+                            <h1 className={style['article-title']}>
+                                {articleData.title}
+                            </h1>
+
+                            {/* 基本信息：时间、分类、标签 */}
+                            <div className={style['article-info']}>
+                                <div className={style['info-wrap']}>
+                                    <Icon
+                                        type="icontime"
+                                        className={style['icon']}
+                                    />
+                                    <span>
+                                        {timeFormat(articleData.createAt, 0)}
+                                    </span>
+                                </div>
+                                <div className={style['info-wrap']}>
+                                    <Icon
+                                        type="iconfan-category"
+                                        className={style['icon']}
+                                    />
+                                    <span>{articleData.categoryName}</span>
+                                </div>
+                                <div className={style['info-wrap']}>
+                                    <Icon
+                                        type="iconshengqian"
+                                        className={style['icon']}
+                                    />
+                                    {lodash.get(articleData.tags, 'length') ? (
+                                        articleData.tags.map((tag: string) => (
+                                            <span
+                                                className={style['label']}
+                                                key={tag}
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        <span>无</span>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* 文章正文内容 */}
+                            <div
+                                id="article-content"
+                                className={`${style['article-content']} braft-output-context`}
+                                dangerouslySetInnerHTML={{
+                                    __html: articleData.html.replace(
+                                        /<br\s*\/?>/g,
+                                        '\n'
+                                    ),
+                                }}
+                            ></div>
+
+                            {/* 点赞，分享 */}
+                            <div className={style['article-operate']}>
                                 <Icon
-                                    type="icontime"
+                                    onClick={clickGood}
+                                    type="icondianzan"
+                                    className={`${style['icon']} ${
+                                        isGood && style['icon-active']
+                                    }`}
+                                />
+                                <Icon
+                                    onClick={clickShare}
+                                    type="iconzhuanfa"
                                     className={style['icon']}
                                 />
-                                <span>
-                                    {timeFormat(articleData.createAt, 0)}
-                                </span>
                             </div>
-                            <div className={style['info-wrap']}>
-                                <Icon
-                                    type="iconfan-category"
-                                    className={style['icon']}
-                                />
-                                <span>{articleData.categoryName}</span>
-                            </div>
-                            <div className={style['info-wrap']}>
-                                <Icon
-                                    type="iconshengqian"
-                                    className={style['icon']}
-                                />
-                                {lodash.get(articleData.tags, 'length') ? (
-                                    articleData.tags.map((tag: string) => (
-                                        <span
-                                            className={style['label']}
-                                            key={tag}
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))
-                                ) : (
-                                    <span>无</span>
-                                )}
-                            </div>
-                        </div>
 
-                        {/* 文章正文内容 */}
-                        <div
-                            className={`${style['article-content']} braft-output-context`}
-                            dangerouslySetInnerHTML={{
-                                __html: articleData.html.replace(
-                                    /<br\s*\/?>/g,
-                                    '\n'
-                                ),
-                            }}
-                        ></div>
-
-                        {/* 点赞，分享 */}
-                        <div className={style['article-operate']}>
-                            <Icon
-                                onClick={clickGood}
-                                type="icondianzan"
-                                className={`${style['icon']} ${
-                                    isGood && style['icon-active']
-                                }`}
+                            {/* 评论 */}
+                            <Comment
+                                dataSource={commentData}
+                                setDataSource={setCommentData}
+                                category={0}
+                                categoryId={articleData._id}
                             />
-                            <Icon
-                                onClick={clickShare}
-                                type="iconzhuanfa"
-                                className={style['icon']}
-                            />
                         </div>
-
-                        {/* 评论 */}
-                        <Comment
-                            dataSource={commentData}
-                            setDataSource={setCommentData}
-                            category={0}
-                            categoryId={articleData._id}
-                        />
                     </div>
-                </div>
+                </>
             )}
         </div>
     );
