@@ -62,6 +62,7 @@ const Anchor: React.FC = () => {
         <div className={style['anchor-box']} style={{ top: `${top}vw` }}>
             {navList.map((item: any) => (
                 <a
+                    title={item.title}
                     className={style[`level-${item.level}`]}
                     key={item}
                     href={`#${item.id}`}
