@@ -34,21 +34,23 @@ const Anchor: React.FC = () => {
             const idDoms = [];
             let diffLevel = 6;
             const tagNames = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
-            articleContent.querySelectorAll('[id]').forEach((node: Element) => {
-                if (tagNames.indexOf(node.tagName) !== -1) {
-                    idDoms.push(node);
-                    if (Number(node.tagName[1]) < diffLevel) {
-                        diffLevel = Number(node.tagName[1]);
+            articleContent
+                .querySelectorAll('[id]')
+                .forEach((node: HTMLElement) => {
+                    if (tagNames.indexOf(node.tagName) !== -1) {
+                        idDoms.push(node);
+                        if (Number(node.tagName[1]) < diffLevel) {
+                            diffLevel = Number(node.tagName[1]);
+                        }
                     }
-                }
-            });
+                });
 
             // 根据idDoms和level得到navList
             const newNavList = [];
-            idDoms.forEach((node: Element) => {
+            idDoms.forEach((node: HTMLElement) => {
                 newNavList.push({
                     level: Number(node.tagName[1]) - diffLevel,
-                    title: node.innerHTML,
+                    title: node.innerText,
                     id: node.id,
                 });
             });
