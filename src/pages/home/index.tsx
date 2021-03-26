@@ -5,6 +5,7 @@ import style from './style.module.scss';
 import context from '../../store/context';
 import CONFIG from '../../config';
 import commentAxios from '../../api/comment';
+import { getImageWidthByClientWidth } from '../../utils/help';
 
 import Icon from '../../components/icon';
 import Footer from '../../components/footer';
@@ -117,7 +118,9 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                         {userInfo.headImg && (
                             <img
                                 alt="个人头像"
-                                src={`${CONFIG.IMAGE_REQUEST_PATH}/user/${userInfo.headImg}?width=200`}
+                                src={`${CONFIG.IMAGE_REQUEST_PATH}/user/${
+                                    userInfo.headImg
+                                }?width=${getImageWidthByClientWidth(180)}`}
                             ></img>
                         )}
                     </div>
@@ -269,7 +272,13 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                                     {item.bacImg ? (
                                         <img
                                             alt="文章配图"
-                                            src={`${CONFIG.IMAGE_REQUEST_PATH}/article/${item.bacImg}?width=300`}
+                                            src={`${
+                                                CONFIG.IMAGE_REQUEST_PATH
+                                            }/article/${
+                                                item.bacImg
+                                            }?width=${getImageWidthByClientWidth(
+                                                340
+                                            )}`}
                                         />
                                     ) : (
                                         <div

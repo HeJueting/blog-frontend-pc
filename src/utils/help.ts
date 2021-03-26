@@ -93,3 +93,10 @@ export function clearBubbly() {
     const bubblyCanvas = document.getElementById('bubbly-canvas');
     document.body.removeChild(bubblyCanvas);
 }
+
+// 根据页面宽度计算获取图片适当的大小
+export function getImageWidthByClientWidth(width: number) {
+    const { clientWidth } = document.body;
+    const newWidth = Math.round((clientWidth * width) / 1920);
+    return newWidth;
+}

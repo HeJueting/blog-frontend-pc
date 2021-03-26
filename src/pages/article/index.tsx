@@ -3,7 +3,7 @@ import style from './style.module.scss';
 import Link from 'next/link';
 import CONFIG from '../../config';
 import lodash from '../../utils/lodash';
-import { timeFormat } from '../../utils/help';
+import { timeFormat, getImageWidthByClientWidth } from '../../utils/help';
 import articleAxios from '../../api/article';
 // 组件
 import Carousel from '../../components/carousel';
@@ -76,7 +76,13 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
                                     style={{
                                         backgroundImage:
                                             item.bacImg &&
-                                            `url(${CONFIG.IMAGE_REQUEST_PATH}/article/${item.bacImg}?width=200)`,
+                                            `url(${
+                                                CONFIG.IMAGE_REQUEST_PATH
+                                            }/article/${
+                                                item.bacImg
+                                            }?width=${getImageWidthByClientWidth(
+                                                440
+                                            )})`,
                                     }}
                                 >
                                     {item.purview === 1 && (
