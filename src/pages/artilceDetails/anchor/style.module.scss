@@ -13,18 +13,18 @@
         white-space: nowrap;
     }
     .level-0 {
-        font-size: 2rem;
-        line-height: 2.4;
-    }
-    .level-1 {
-        text-indent: 1vw;
         font-size: 1.8rem;
         line-height: 2;
     }
-    .level-2 {
-        text-indent: 2vw;
+    .level-1 {
+        text-indent: 1vw;
         font-size: 1.6rem;
         line-height: 1.6;
+    }
+    .level-2 {
+        text-indent: 2vw;
+        font-size: 1.4rem;
+        line-height: 1.2;
     }
     .level-3 {
         text-indent: 3vw;
