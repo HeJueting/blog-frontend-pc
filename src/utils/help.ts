@@ -96,7 +96,10 @@ export function clearBubbly() {
 
 // 根据页面宽度计算获取图片适当的大小
 export function getImageWidthByClientWidth(width: number) {
-    const { clientWidth } = document.body;
-    const newWidth = Math.round((clientWidth * width) / 1920);
+    let newWidth = width;
+    try {
+        const { clientWidth } = document.body;
+        newWidth = Math.round((clientWidth * width) / 1920);
+    } catch (e) {}
     return newWidth;
 }
