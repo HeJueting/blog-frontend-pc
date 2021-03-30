@@ -37,6 +37,11 @@ const App: React.FC<IAppProps> = ({ Component, pageProps }) => {
     const noFooterRouters = ['/', '/resume', '/login'];
 
     useEffect(() => {
+        console.log(
+            `%c Author:  hejueting \n\n Contact：hejueting@qq.com \n\n Motto:   never say never ~`,
+            'color:#5f8eeb;font-weight:bolder;font-size:16px;'
+        );
+
         // 博客访问量+1
         activeAxios.addLook();
     }, []);

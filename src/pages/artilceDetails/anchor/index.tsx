@@ -10,8 +10,6 @@ const Anchor: React.FC = () => {
     useEffect(() => {
         const scrollDom = document.getElementById('scroll-content');
         const litsen = () => {
-            console.log('scrollDom.scrollTop:', scrollDom.scrollTop);
-            console.log('clientWidth:', (scrollDom.clientWidth / 100) * 28);
             if (scrollDom.scrollTop > (scrollDom.clientWidth / 100) * 28) {
                 setTop(2);
             } else {
@@ -64,7 +62,7 @@ const Anchor: React.FC = () => {
                 <a
                     title={item.title}
                     className={style[`level-${item.level}`]}
-                    key={item}
+                    key={item.id}
                     href={`#${item.id}`}
                 >
                     ● {item.title}
