@@ -240,7 +240,7 @@ const Comment: React.FC<ICommentProps> = ({
                     className={style['input']}
                     value={email}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        setEmail(e.target.value.substring(0, 20));
+                        setEmail(e.target.value.substring(0, 50));
                     }}
                 />
                 <Button onClick={submit}>提交</Button>

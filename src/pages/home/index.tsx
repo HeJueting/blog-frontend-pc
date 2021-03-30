@@ -66,7 +66,7 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
     };
     // email发送改变
     const emailOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value.substring(0, 20));
+        setEmail(e.target.value.substring(0, 50));
     };
     // 点击提交
     const submit = async (
