@@ -294,16 +294,6 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                                             />
                                         </div>
                                     )}
-
-                                    <div className={style['four-mask-wrap']}>
-                                        <p
-                                            className={
-                                                style['four-mask-wrap-title']
-                                            }
-                                        >
-                                            {item.title}
-                                        </p>
-                                    </div>
                                 </div>
                             </Link>
                         ))}
