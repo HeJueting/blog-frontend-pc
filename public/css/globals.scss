@@ -116,6 +116,13 @@ body {
     a {
         color: #1890ff;
     }
+    blockquote {
+        padding: 0.8vw 1vw;
+        background-color: #f1f2f3;
+        border-left: 0.35vw solid #ccc;
+        color: #666;
+        font-style: italic;
+    }
 }
 .bf-container {
     pre,
