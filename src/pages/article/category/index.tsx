@@ -100,7 +100,7 @@ const Category: React.FC<ICreateProps> = ({ changeCategory }) => {
                         onClick(item);
                     }}
                 >
-                    <span className={item.children && 'item-menu'}>
+                    <span className={item.children && style['item-menu']}>
                         {item.name}
                     </span>
                     {item.children ? (
