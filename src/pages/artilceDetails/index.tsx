@@ -7,6 +7,10 @@ import { timeFormat, getUrlQuery } from '../../utils/help';
 import articleAxios from '../../api/article';
 import articleCategoryAxios from '../../api/articleCategory';
 import commentAxios from '../../api/comment';
+// prismjs代码包
+import 'prismjs/components/prism-jsx.js';
+import 'prismjs/components/prism-less.js';
+import 'prismjs/components/prism-json.js';
 // 组件
 import Carousel from '../../components/carousel';
 import Icon from '../../components/icon';
