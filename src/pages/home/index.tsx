@@ -269,7 +269,10 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                     {/* 文章 */}
                     <div className={style['four-article-wrap']}>
                         {hotArticles.map((item) => (
-                            <Link href={'/'} key={item.title}>
+                            <Link
+                                href={`/article/${item._id}`}
+                                key={item.title}
+                            >
                                 <div className={style['four-article-item']}>
                                     {item.bacImg ? (
                                         <img
