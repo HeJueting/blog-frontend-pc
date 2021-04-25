@@ -7,7 +7,6 @@ import '../public/css/code-highlighter.css';
 import '../public/css/braft-editor.css';
 import '../public/iconfont/iconfont.css';
 import activeAxios from '../src/api/active';
-import Prism from 'prismjs';
 
 import Menu from '../src/components/menu';
 import SetRem from '../src/components/setRem';

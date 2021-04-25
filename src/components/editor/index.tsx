@@ -4,6 +4,7 @@ import BraftEditor from 'braft-editor';
 import CodeHighlighter from 'braft-extensions/dist/code-highlighter';
 // prismjs代码包
 import 'prismjs/components/prism-jsx.js';
+import 'prismjs/components/prism-less.js';
 import 'prismjs/components/prism-json.js';
 
 // 编辑器代码高亮
