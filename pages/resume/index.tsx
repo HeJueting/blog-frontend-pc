@@ -1,13 +1,17 @@
-import Head from "next/head";
-import { GetStaticProps } from "next";
-import resumeAxios from "../../src/api/resume";
-import Resume from "../../src/pages/resume";
+import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import resumeAxios from '../../src/api/resume';
+import Resume from '../../src/pages/resume';
 
 function App({ resumeInfo }) {
     return (
         <>
             <Head>
                 <title>hejueting的博客-简历</title>
+                <meta
+                    name="description"
+                    content="欢迎来到 hejueting 的个人博客"
+                />
             </Head>
             <Resume resumeInfo={resumeInfo} />
         </>

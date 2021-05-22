@@ -72,7 +72,8 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
     const submit = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
-        const emailReg = /^([A-Za-z0-9_\-.\u4e00-\u9fa5])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,8})$/;
+        const emailReg =
+            /^([A-Za-z0-9_\-.\u4e00-\u9fa5])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,8})$/;
         if (!html) {
             message.error('请输入您的建议 ！');
         } else if (!name) {
@@ -315,9 +316,9 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
             >
                 <div className={style['section-five-content']}>
                     <div className={style['suggestion-wrap']}>
-                        <h1 className={style['five-context-title']}>
+                        <h3 className={style['five-context-title']}>
                             Suggestion
-                        </h1>
+                        </h3>
                         <Textarea
                             placeholder="请输入您的意见"
                             className={style['suggestion-textarea-wrap']}
@@ -341,7 +342,7 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                         </div>
                     </div>
                     <div className={style['contact-wrap']}>
-                        <h1 className={style['five-context-title']}>Contact</h1>
+                        <h3 className={style['five-context-title']}>Contact</h3>
                         <div className={style['contact-item-wrap']}>
                             <Icon
                                 type="iconemail"

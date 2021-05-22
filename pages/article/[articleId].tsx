@@ -11,9 +11,22 @@ function App({ initialData }) {
         <>
             <Head>
                 <title>
-                    hejueting的博客-
                     {lodash.get(initialData, 'article.title', '文章')}
                 </title>
+                <meta
+                    name="keywords"
+                    content={lodash
+                        .get(initialData, 'article.tags', [])
+                        .join(',')}
+                />
+                <meta
+                    name="description"
+                    content={`欢迎来到 hejueting 的个人博客，希望"${lodash.get(
+                        initialData,
+                        'article.title',
+                        '文章'
+                    )}"这篇文章能给你带来帮助 ~`}
+                />
             </Head>
             <ArticleDetails initialData={initialData} />
         </>
