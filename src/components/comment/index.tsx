@@ -6,6 +6,7 @@ import { timeFormat } from '../../utils/help';
 import lodash from '../../utils/lodash';
 import Prism from 'prismjs';
 import context from '../../store/context';
+import CONFIG from '../../config';
 
 import Icon from '../icon';
 import Input from '../input';
@@ -64,7 +65,8 @@ const Comment: React.FC<ICommentProps> = ({
     const submit = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
-        const emailReg = /^([A-Za-z0-9_\-.\u4e00-\u9fa5])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,8})$/;
+        const emailReg =
+            /^([A-Za-z0-9_\-.\u4e00-\u9fa5])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,8})$/;
         if (!html) {
             message.error('请输入您的建议 ！');
         } else if (!name) {
@@ -132,7 +134,9 @@ const Comment: React.FC<ICommentProps> = ({
                                 {headerImgObj[item.name] ? (
                                     <img
                                         alt="评论人头像"
-                                        src={headerImgObj[item.name]}
+                                        src={`${
+                                            CONFIG.IMAGE_REQUEST_PATH
+                                        }/setting/${headerImgObj[item.name]}`}
                                     />
                                 ) : (
                                     <Icon
