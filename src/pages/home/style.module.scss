@@ -262,6 +262,8 @@
                     background-color: var(--article_bacImage_background);
                     color: var(--article_bacImage_color);
                     span {
+                        padding: 0 2vw;
+                        text-align: center;
                         font-family: SimSun;
                         font-size: 2rem;
                         transition: all 0.3s linear 0s;
