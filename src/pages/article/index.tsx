@@ -71,20 +71,26 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
                                 href={`/article/${item._id}`}
                                 key={item.title}
                             >
-                                <div
-                                    className={style['image-wrap']}
-                                    style={{
-                                        backgroundImage:
-                                            item.bacImg &&
-                                            `url(${
-                                                CONFIG.IMAGE_REQUEST_PATH
-                                            }/article/${
-                                                item.bacImg
-                                            }?width=${getImageWidthByClientWidth(
-                                                440
-                                            )})`,
-                                    }}
-                                >
+                                <div className={style['image-wrap']}>
+                                    {item.bacImg ? (
+                                        <div
+                                            className={style['bac-image']}
+                                            style={{
+                                                backgroundImage: `url(${
+                                                    CONFIG.IMAGE_REQUEST_PATH
+                                                }/article/${
+                                                    item.bacImg
+                                                }?width=${getImageWidthByClientWidth(
+                                                    440
+                                                )})`,
+                                            }}
+                                        ></div>
+                                    ) : (
+                                        <div className={style['bac-image']}>
+                                            <p>{item.title}</p>
+                                        </div>
+                                    )}
+
                                     {item.purview === 1 && (
                                         <div className={style['lock']}>
                                             <Icon

@@ -27,16 +27,35 @@
                     position: relative;
                     width: 23vw;
                     height: 13vw;
-                    border: 0.05vw solid var(--border_color);
-                    background-size: cover;
-                    background-repeat: no-repeat;
                     border-radius: 0.5vw;
-                    box-sizing: border-box;
-                    animation: article-in 1s ease-out;
-                    animation-fill-mode: forwards;
                     &:hover {
                         cursor: pointer;
                         box-shadow: 0 0 0.2vw 0.05vw var(--boxshadow_color);
+                        .bac-image p {
+                            transform: scale(1.2);
+                        }
+                    }
+                    .bac-image {
+                        position: absolute;
+                        width: 23vw;
+                        height: 13vw;
+                        box-sizing: border-box;
+                        animation: article-in 1s ease-out;
+                        animation-fill-mode: forwards;
+                        border: 0.05vw solid var(--border_color);
+                        border-radius: 0.5vw;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-color: var(--article_bacImage_background);
+                        color: var(--article_bacImage_color);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        p {
+                            font-size: 2.4rem;
+                            font-family: SimSun;
+                            transition: 0.2s transform linear 0s;
+                        }
                     }
                     .lock {
                         position: absolute;

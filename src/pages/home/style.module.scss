@@ -251,17 +251,19 @@
                 margin: 4vw 2vw 0 2vw;
                 cursor: pointer;
                 overflow: hidden;
-                .four-icon-wrap {
+                .four-bac-wrap {
                     position: absolute;
                     width: 100%;
                     height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border: 0.2vw solid var(--border_color);
                     box-sizing: border-box;
-                    .four-iconbook {
-                        font-size: 6rem;
+                    background-color: var(--article_bacImage_background);
+                    color: var(--article_bacImage_color);
+                    span {
+                        font-family: SimSun;
+                        font-size: 2rem;
                         transition: all 0.3s linear 0s;
                     }
                 }
@@ -284,9 +286,9 @@
                         opacity: 1;
                         transition: all 0.3s linear 0s;
                     }
-                    .four-iconbook {
+                    .four-bac-wrap span {
                         transform: scale(1.2);
-                        transition: all 0.3s linear 0s;
+                        transition: all 0.2s linear 0s;
                     }
                 }
             }

@@ -287,15 +287,8 @@ const Home: React.FC<IHomeProps> = ({ hotArticles = [] }) => {
                                             )}`}
                                         />
                                     ) : (
-                                        <div
-                                            className={style['four-icon-wrap']}
-                                        >
-                                            <Icon
-                                                type="iconbook"
-                                                className={
-                                                    style['four-iconbook']
-                                                }
-                                            />
+                                        <div className={style['four-bac-wrap']}>
+                                            <span>{item.title}</span>
                                         </div>
                                     )}
                                 </div>
