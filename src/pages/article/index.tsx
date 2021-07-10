@@ -9,7 +9,6 @@ import articleAxios from '../../api/article';
 import Carousel from '../../components/carousel';
 import Icon from '../../components/icon';
 import Catrgory from './category';
-import Pagination from './pagination';
 // 接口
 import { IArticleList } from '../../typing/api/article';
 
@@ -18,43 +17,36 @@ interface IArticleProps {
     initialData: any;
 }
 const Article: React.FC<IArticleProps> = ({ initialData }) => {
+    const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
     const [articles, setArticles] = useState<any[]>([]);
     const [category, setCategory] = useState<any>({});
-    const [page, setPage] = useState<number>(1);
-    const [total, setTotal] = useState<number>(1);
 
     // 初始化文章数据
     useEffect(() => {
+        setIsFirstRender(false);
         setArticles(initialData.data);
-        setTotal(initialData.total === 0 ? 1 : initialData.total);
     }, [initialData]);
 
     // 查询文章信息
     const initArticles = async () => {
-        const condition: IArticleList = {
-            page,
-            pageSize: 6,
-        };
-        if (lodash.get(category, '_id')) {
-            condition.categoryId = category._id;
+        // 首次加载页面不需要渲染
+        if (!isFirstRender) {
+            const condition: IArticleList = {
+                page: 1,
+                pageSize: 10000,
+            };
+            if (lodash.get(category, '_id')) {
+                condition.categoryId = category._id;
+            }
+            // 查询文章
+            const res = await articleAxios.list(condition);
+            setArticles(res.data);
         }
-        // 查询文章
-        const res = await articleAxios.list(condition);
-        setArticles(res.data);
-        setTotal(res.total === 0 ? 1 : res.total);
     };
     // 文章类型改变
     useEffect(() => {
-        if (page !== 1) {
-            setPage(1);
-        } else {
-            initArticles();
-        }
-    }, [category]);
-    // 页码数量
-    useEffect(() => {
         initArticles();
-    }, [page]);
+    }, [category]);
 
     return (
         <div className={style['article']}>
@@ -146,20 +138,11 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
                     {/* 文章分类 */}
                     <Catrgory
                         changeCategory={(item: any) => {
-                            setPage(1);
                             setCategory(item);
                         }}
                     />
                 </div>
             </main>
-
-            {/* 查看更多文章 */}
-            <Pagination
-                page={page}
-                pageSize={6}
-                setPage={setPage}
-                total={total}
-            />
         </div>
     );
 };

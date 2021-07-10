@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
     // 查询文章
     const articlesRes = await articleAxios.list({
         page: 1,
-        pageSize: 6,
+        pageSize: 10000,
     });
     return {
         props: {
