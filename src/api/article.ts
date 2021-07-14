@@ -44,12 +44,6 @@ const articleAxios = {
             url: '/article/frontend/addGood',
             params,
         }),
-    // 获取文章的ids
-    getIds: () =>
-        Axios({
-            method: 'get',
-            url: '/article/frontend/ids',
-        }),
 };
 
 export default articleAxios;

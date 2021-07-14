@@ -1,12 +1,10 @@
 .article {
     background: var(--bg_color);
     min-height: calc(100vh - 38vw);
-    padding-bottom: 3vw;
     .article-wrap {
         background: var(--bg_color);
         width: 72vw;
-        margin: 0 auto;
-        padding: 5vw 0;
+        margin: 5vw auto 0 auto;
         display: flex;
         justify-content: space-between;
         .article-wrap-left {
@@ -139,5 +137,8 @@
                 }
             }
         }
+    }
+    .intersection {
+        padding: 2.5vw 0;
     }
 }

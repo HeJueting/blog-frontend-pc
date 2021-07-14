@@ -35,12 +35,15 @@ function App({ initialData }) {
 
 // 动态渲染
 export const getStaticPaths = async function () {
-    // 查询文章详情
-    const res = await articleAxios.getIds();
+    // 查询所有的文章信息
+    const res = await articleAxios.list({
+        page: 1,
+        pageSize: 10000,
+    });
     // 收集paths
     const paths = [];
-    res.data.forEach((id: string) => {
-        paths.push(`/article/${id}`);
+    res.data.forEach((item: { _id: string }) => {
+        paths.push(`/article/${item._id}`);
     });
     return {
         paths: paths,
@@ -56,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ params, ...data }) => {
         _id: articleId as string,
     });
 
-    // 如果能查出来该文章可以直接被访问，继续查询他的评论消息
+    // 继续查询他的评论消息
     let comment = [];
     if (articleRes.data) {
         // 请求文章分类信息，将文章详情中的分类id展示为分类信息

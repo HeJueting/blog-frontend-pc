@@ -1,52 +1,67 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import style from './style.module.scss';
 import Link from 'next/link';
 import CONFIG from '../../config';
-import lodash from '../../utils/lodash';
 import { timeFormat, getImageWidthByClientWidth } from '../../utils/help';
-import articleAxios from '../../api/article';
 // 组件
 import Carousel from '../../components/carousel';
 import Icon from '../../components/icon';
 import Catrgory from './category';
-// 接口
-import { IArticleList } from '../../typing/api/article';
 
 // 接口：props
 interface IArticleProps {
     initialData: any;
 }
 const Article: React.FC<IArticleProps> = ({ initialData }) => {
-    const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
-    const [articles, setArticles] = useState<any[]>([]);
+    // 用于展示的虚拟文章列表
+    const [articleLits, setArticleLits] = useState<any[]>([]);
+    // 文章分类、页码
     const [category, setCategory] = useState<any>({});
+    const [page, setPage] = useState<number>(1);
+    // 页面底部被监听的元素
+    const intersectionDom = useRef<HTMLDivElement>(null);
 
-    // 初始化文章数据
+    // 虚拟列表加载dataSource
     useEffect(() => {
-        setIsFirstRender(false);
-        setArticles(initialData.data);
-    }, [initialData]);
-
-    // 查询文章信息
-    const initArticles = async () => {
-        // 首次加载页面不需要渲染
-        if (!isFirstRender) {
-            const condition: IArticleList = {
-                page: 1,
-                pageSize: 10000,
-            };
-            if (lodash.get(category, '_id')) {
-                condition.categoryId = category._id;
+        // 监听是否滚动到了页面底部
+        const Observer = new IntersectionObserver((entries) => {
+            // 滑动到了底部
+            if (entries[0].intersectionRatio > 0) {
+                setPage((prePage) => {
+                    if (prePage * 5 < initialData.total) {
+                        return prePage + 1;
+                    }
+                });
             }
-            // 查询文章
-            const res = await articleAxios.list(condition);
-            setArticles(res.data);
-        }
-    };
-    // 文章类型改变
+        });
+        Observer.observe(intersectionDom.current);
+
+        // 取消监听
+        return () => {
+            Observer.unobserve(intersectionDom.current);
+        };
+    }, []);
+
+    // 根据文章页码、文章类型去展示文章列表
     useEffect(() => {
-        initArticles();
-    }, [category]);
+        // 确认当前分类下的所有文章
+        const dataSource = initialData.data.filter(
+            (item: { categoryId: string }) => {
+                // 全部分类 or 某种分类
+                if (category._id) {
+                    return item.categoryId === category._id;
+                } else {
+                    return true;
+                }
+            }
+        );
+        // 每页展示5条文章数据
+        if (page * 5 <= dataSource.length) {
+            setArticleLits(dataSource.slice(0, page * 5));
+        } else {
+            setArticleLits(dataSource);
+        }
+    }, [page, category]);
 
     return (
         <div className={style['article']}>
@@ -56,7 +71,7 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
             <main className={style['article-wrap']}>
                 {/* 文章列表 */}
                 <div className={style['article-wrap-left']}>
-                    {articles.map((item) => (
+                    {articleLits.map((item) => (
                         <div className={style['article-item']} key={item._id}>
                             {/* 文章图片 */}
                             <Link
@@ -138,11 +153,15 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
                     {/* 文章分类 */}
                     <Catrgory
                         changeCategory={(item: any) => {
+                            setPage(1);
                             setCategory(item);
                         }}
                     />
                 </div>
             </main>
+
+            {/* 监听是否已经滑动到底部的元素 */}
+            <div ref={intersectionDom} className={style['intersection']}></div>
         </div>
     );
 };

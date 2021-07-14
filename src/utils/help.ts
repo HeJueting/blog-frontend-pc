@@ -1,5 +1,5 @@
 // 获取url参数
-export const getUrlQuery = (url: string) => {
+export function getUrlQuery(url: string) {
     const query = {};
     const queryStr = url.split('?')[1];
     if (queryStr) {
@@ -10,7 +10,7 @@ export const getUrlQuery = (url: string) => {
         });
     }
     return query;
-};
+}
 
 // 时间格式转换: 0(YYYY-MM-DD)、1(YYYY-MM-DD mm:ss)
 export function timeFormat(stamp: number | string, format: number) {
