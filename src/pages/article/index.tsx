@@ -38,7 +38,7 @@ const Article: React.FC<IArticleProps> = ({ initialData }) => {
 
         // 取消监听
         return () => {
-            Observer.unobserve(intersectionDom.current);
+            Observer.disconnect();
         };
     }, []);
 

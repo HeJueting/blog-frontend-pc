@@ -26,6 +26,8 @@
                     width: 23vw;
                     height: 13vw;
                     border-radius: 0.5vw;
+                    animation: article-in 1s ease-out;
+                    animation-fill-mode: forwards;
                     &:hover {
                         cursor: pointer;
                         box-shadow: 0 0 0.2vw 0.05vw var(--boxshadow_color);
@@ -38,8 +40,6 @@
                         width: 23vw;
                         height: 13vw;
                         box-sizing: border-box;
-                        animation: article-in 1s ease-out;
-                        animation-fill-mode: forwards;
                         border: 0.05vw solid var(--border_color);
                         border-radius: 0.5vw;
                         background-size: cover;
